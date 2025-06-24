@@ -10,7 +10,7 @@ theme: jekyll-theme-minimal
 
 author:
   name   : "Krishnagopal Halder"
-  avatar : "/assets/images/profile.jpg"
+  avatar : "/assets/images/profile.jpeg"
   bio    : "Research Scientist at ZALF. Focused on AI for Agriculture, Remote Sensing, and Geospatial Analysis."
   location : "Müncheberg, Brandenburg, Germany"
   links:
