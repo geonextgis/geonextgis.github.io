@@ -1,4 +1,4 @@
-# Data Scientist
+# Geospatial Data Scientist
 
 #### Technical Skills: Python, Remote Sensing, GIS, ML, and DL
 
