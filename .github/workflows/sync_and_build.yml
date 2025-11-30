@@ -35,15 +35,16 @@ jobs:
           git commit -m "Sync from Overleaf" || echo "No changes to commit"
           git push
 
-      # 4. Compile the PDF
+      # 5. Compile the PDF
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: main_cv.tex  # CHANGE THIS to your .tex filename (e.g. cv.tex)
+          root_file: main.tex
+          working_directory: artifacts
 
-      # 5. Rename output
+      # 6. Rename the output PDF
       - name: Rename PDF
-        run: mv main.pdf Krishnagopal_Halder_CV.pdf
+        run: mv artifacts/main.pdf Krishnagopal_Halder_CV.pdf
 
       # 6. Publish the PDF to a Stable URL
       - name: Upload to Release
@@ -56,3 +57,5 @@ jobs:
           make_latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
