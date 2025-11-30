@@ -507,7 +507,7 @@
                 switch (activeTab) {
                     case "home":
                         return (
-                            <div className="animate-fade-in h-full flex flex-col justify-center py-4 relative z-10">
+                            <div className="animate-fade-in min-h-full flex flex-col justify-center py-12 relative z-10">
                                 <div className="flex flex-col md:flex-row gap-8 lg:gap-16 items-center justify-center max-w-5xl mx-auto w-full">
                                     
                                     {/* Left Column */}
@@ -814,7 +814,7 @@
                         )}
 
                         {/* Main Content Area */}
-                        <main className={`flex-1 w-full max-w-5xl mx-auto px-4 md:px-8 relative z-10 ${activeTab === 'home' ? 'overflow-hidden flex flex-col justify-center' : 'overflow-y-auto custom-scroll pt-8'}`}>
+                        <main className="flex-1 w-full max-w-5xl mx-auto px-4 md:px-8 relative z-10 overflow-y-auto custom-scroll pt-4 md:pt-8">
                             {renderContent()}
                         </main>
 
