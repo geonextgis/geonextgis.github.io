@@ -1,9 +1,7 @@
 name: Sync Overleaf & Build PDF
 
 on:
-  # Run manually from GitHub Actions tab
   workflow_dispatch:
-  # Run automatically every 24 hours (optional)
   schedule:
     - cron: '0 0 * * *'
 
@@ -11,22 +9,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Needed to create releases
+      contents: write
 
     steps:
-      # 1. Checkout your repo
+      # 1. Checkout
       - name: Checkout Git Repo
         uses: actions/checkout@v4
 
-      # 2. Pull latest .tex files from Overleaf (The Magic Step)
+      # 2. Pull from Overleaf
       - name: Sync with Overleaf
         uses: subhamx/overleaf_sync_with_git@master
         with:
           OVERLEAF_PROJECT_ID: ${{ secrets.OVERLEAF_PROJECT_ID }}
           OVERLEAF_COOKIE: ${{ secrets.OVERLEAF_COOKIE }}
-        # This will overwrite local files with Overleaf files
 
-      # 3. Commit changes back to repo (so you have a code backup)
+      # 3. Commit changes (Backup source code)
       - name: Commit Overleaf Changes
         run: |
           git config --global user.name 'GitHub Actions'
@@ -35,18 +32,20 @@ jobs:
           git commit -m "Sync from Overleaf" || echo "No changes to commit"
           git push
 
-      # 5. Compile the PDF
+      # 4. Compile LaTeX
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: main.tex
-          working_directory: artifacts
+          root_file: main.tex          # ✅ Correct filename
+          working_directory: artifacts # ✅ Correct folder path
 
-      # 6. Rename the output PDF
+      # 5. Rename output
       - name: Rename PDF
-        run: mv artifacts/main.pdf Krishnagopal_Halder_CV.pdf
+        # ✅ Uses 'sudo' to fix permission error
+        # ✅ Moves 'main.pdf' from 'artifacts/' folder
+        run: sudo mv artifacts/main.pdf Krishnagopal_Halder_CV.pdf
 
-      # 6. Publish the PDF to a Stable URL
+      # 6. Upload Release
       - name: Upload to Release
         uses: softprops/action-gh-release@v2
         with:
@@ -55,7 +54,6 @@ jobs:
           body: "Automatic sync from Overleaf."
           files: Krishnagopal_Halder_CV.pdf
           make_latest: true
+          overwrite: true # ✅ Prevents errors if tag exists
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
