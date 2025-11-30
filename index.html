@@ -3,10 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Researcher Portfolio</title>
+    <title>Krishnagopal Halder - Portfolio</title>
     
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS with Dark Mode Config -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#1e293b', 
+                            900: '#0f172a',
+                            950: '#020617', // Deep cosmic background
+                        },
+                        cyan: {
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
     
     <!-- React and ReactDOM -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -21,6 +47,8 @@
         
         body {
             font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+            overflow: hidden; 
         }
         
         @keyframes fade-in {
@@ -28,34 +56,59 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .animate-fade-in {
-            animation: fade-in 0.4s ease-out forwards;
+            animation: fade-in 0.5s ease-out forwards;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(148, 163, 184, 0.5);
+            border-radius: 20px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background-color: rgba(71, 85, 105, 0.5);
+        }
+        
+        /* Glass Utilities */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .dark .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body>
     <div id="root"></div>
 
     <script type="text/babel">
-        const { useState, useEffect } = React;
+        const { useState, useEffect, useRef } = React;
 
-        // --- ICONS COMPONENT HELPER ---
-        // Replacing lucide-react imports with inline SVGs for standalone portability
+        // --- ICONS ---
         const createIcon = (path) => ({ size = 24, className = "", ...props }) => (
-            <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width={size} 
-                height={size} 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                className={className}
-                {...props}
-            >
-                <path d={path} />
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props}><path d={path} /></svg>
         );
 
         const BookOpen = createIcon("M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z");
@@ -76,101 +129,255 @@
         const Check = createIcon("M20 6L9 17l-5-5");
         const GraduationCap = createIcon("M22 10v6M2 10l10-5 10 5-10 5z M6 12v5c3 3 9 3 12 0v-5");
         const MapPin = createIcon("M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z M12 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z");
-        const Calendar = createIcon("M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z M16 2v4 M8 2v4 M3 10h18");
+        const SunIcon = ({ size = 24, className = "", ...props }) => (
+             <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props}><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        );
+        const Moon = ({ size = 24, className = "", ...props }) => (
+             <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props}><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        );
+        const Send = ({ size = 20, className = "" }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        );
 
-        // --- MOCK DATA ---
+        // --- NEURAL NETWORK BACKGROUND ANIMATION ---
+        const NeuralBackground = ({ isDark }) => {
+            const canvasRef = useRef(null);
 
+            useEffect(() => {
+                const canvas = canvasRef.current;
+                if (!canvas) return;
+                const ctx = canvas.getContext('2d');
+                let animationFrameId;
+                let particles = [];
+                let width, height;
+                
+                // Mouse interaction
+                let mouse = { x: null, y: null, radius: 150 };
+
+                const resize = () => {
+                    width = canvas.width = window.innerWidth;
+                    height = canvas.height = window.innerHeight;
+                    initParticles();
+                };
+
+                class Particle {
+                    constructor() {
+                        this.x = Math.random() * width;
+                        this.y = Math.random() * height;
+                        this.vx = (Math.random() - 0.5) * 0.5; // Slow velocity
+                        this.vy = (Math.random() - 0.5) * 0.5;
+                        this.size = Math.random() * 2 + 1;
+                    }
+
+                    update() {
+                        this.x += this.vx;
+                        this.y += this.vy;
+
+                        // Bounce off edges
+                        if (this.x < 0 || this.x > width) this.vx *= -1;
+                        if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                        // Mouse interaction
+                        if (mouse.x != null) {
+                            let dx = mouse.x - this.x;
+                            let dy = mouse.y - this.y;
+                            let distance = Math.sqrt(dx * dx + dy * dy);
+                            if (distance < mouse.radius) {
+                                const forceDirectionX = dx / distance;
+                                const forceDirectionY = dy / distance;
+                                const force = (mouse.radius - distance) / mouse.radius;
+                                const directionX = forceDirectionX * force * 0.5;
+                                const directionY = forceDirectionY * force * 0.5;
+                                this.x -= directionX;
+                                this.y -= directionY;
+                            }
+                        }
+                    }
+
+                    draw() {
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                        // Node color
+                        ctx.fillStyle = isDark ? '#22d3ee' : '#64748b'; 
+                        ctx.fill();
+                    }
+                }
+
+                const initParticles = () => {
+                    particles = [];
+                    // Adjust density based on screen size
+                    const numberOfParticles = (width * height) / 15000; 
+                    for (let i = 0; i < numberOfParticles; i++) {
+                        particles.push(new Particle());
+                    }
+                };
+
+                const connect = () => {
+                    let opacityValue = 1;
+                    for (let a = 0; a < particles.length; a++) {
+                        for (let b = a; b < particles.length; b++) {
+                            let dx = particles[a].x - particles[b].x;
+                            let dy = particles[a].y - particles[b].y;
+                            let distance = dx * dx + dy * dy;
+
+                            if (distance < (width/7) * (height/7)) {
+                                opacityValue = 1 - (distance / 20000);
+                                const color = isDark ? `rgba(34, 211, 238, ${opacityValue * 0.5})` : `rgba(100, 116, 139, ${opacityValue * 0.5})`;
+                                ctx.strokeStyle = color;
+                                ctx.lineWidth = 0.5;
+                                ctx.beginPath();
+                                ctx.moveTo(particles[a].x, particles[a].y);
+                                ctx.lineTo(particles[b].x, particles[b].y);
+                                ctx.stroke();
+                            }
+                        }
+                        
+                        // Connect to mouse
+                        if (mouse.x != null) {
+                            let dx = particles[a].x - mouse.x;
+                            let dy = particles[a].y - mouse.y;
+                            let distance = dx * dx + dy * dy;
+                            if (distance < mouse.radius * mouse.radius) {
+                                const color = isDark ? `rgba(34, 211, 238, 0.4)` : `rgba(100, 116, 139, 0.4)`;
+                                ctx.strokeStyle = color;
+                                ctx.lineWidth = 0.5;
+                                ctx.beginPath();
+                                ctx.moveTo(particles[a].x, particles[a].y);
+                                ctx.lineTo(mouse.x, mouse.y);
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                };
+
+                const animate = () => {
+                    requestAnimationFrame(animate);
+                    ctx.clearRect(0, 0, width, height);
+                    
+                    particles.forEach(particle => {
+                        particle.update();
+                        particle.draw();
+                    });
+                    connect();
+                };
+
+                window.addEventListener('resize', resize);
+                window.addEventListener('mousemove', (e) => {
+                    mouse.x = e.x;
+                    mouse.y = e.y;
+                });
+                window.addEventListener('mouseout', () => {
+                    mouse.x = undefined;
+                    mouse.y = undefined;
+                });
+
+                resize();
+                animate();
+
+                return () => {
+                    window.removeEventListener('resize', resize);
+                };
+            }, [isDark]);
+
+            return (
+                <canvas 
+                    ref={canvasRef} 
+                    className="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-50 dark:opacity-40" 
+                />
+            );
+        };
+
+
+        // --- DATA ---
         const PROFILE = {
-            name: "Dr. Elena Varchavon",
-            title: "Senior Research Scientist",
-            institution: "Institute for Advanced Machine Intelligence",
-            email: "elena.v@example.edu",
-            location: "Cambridge, MA",
-            bio: "I am a researcher at the intersection of Computer Vision and Cognitive Science. My work focuses on developing interpretable deep learning models that mimic human visual perception. I received my Ph.D. from Stanford University and have previously worked at DeepMind.",
-            interests: ["Computer Vision", "Neuro-symbolic AI", "Cognitive Modeling", "Human-AI Interaction"],
+            name: "Krishnagopal Halder",
+            title: "Research Scientist",
+            institution: "Leibniz-Centre for Agricultural Landscape Research (ZALF)",
+            email: "Krishnagopal.Halder@zalf.de",
+            location: "Müncheberg, Germany",
+            bio: "I am a researcher exploring how remote sensing and machine learning can advance sustainable agriculture and landscape analysis. My work focuses on building scalable, interpretable models for agricultural monitoring, crop yield forecasting, and environmental sustainability. I am currently a Research Scientist at ZALF, contributing to interdisciplinary efforts in climate–agriculture modelling.",
+            interests: ["Remote Sensing", "GIS", "GeoAI", "Agriculture"],
             stats: [
-                { label: "Citations", value: "1,240+" },
-                { label: "H-Index", value: "18" },
-                { label: "Years Exp.", value: "8" }
+                { label: "Citations", value: "60+" },
+                { label: "H-Index", value: "4" },
+                { label: "Years Exp.", value: "2" }
             ]
+        };
+
+        const SKILLS_DATA = {
+            "Languages": ["Python", "SQL", "JavaScript", "R"],
+            "Technologies": ["Google Earth Engine", "PyTorch", "TensorFlow", "Scikit-learn", "Git", "GitHub", "PostGIS"],
+            "Methodologies": ["Machine Learning", "Deep Learning", "Geospatial Analysis", "Image Processing", "Statistical Analysis"],
+            "Software": ["ArcGIS Pro", "QGIS", "Photoshop", "Adobe Illustrator"]
         };
 
         const PUBLICATIONS = [
             {
-                id: 1,
-                title: "Visual Attention Mechanisms in Deep Neural Networks",
-                authors: "Varchavon, E., Smith, J., & Chen, L.",
-                venue: "NeurIPS 2024 (Oral)",
-                year: 2024,
-                type: "Conference",
-                link: "#",
-                citations: 45,
-                abstract: "We propose a new attention mechanism that significantly improves interpretability without sacrificing accuracy on ImageNet benchmarks."
-            },
-            {
-                id: 2,
-                title: "Bridging the Gap: Symbolic Logic in Pixel Space",
-                authors: "Varchavon, E. & Doe, A.",
-                venue: "Journal of Artificial Intelligence Research (JAIR)",
-                year: 2023,
+                id: 5,
+                title: "A robust and scalable crop mapping framework using advanced machine learning and optical and SAR imageries",
+                authors: "Halder, K., Srivastava, A. K., et al.",
+                venue: "Smart Agricultural Technology",
+                year: 2025,
                 type: "Journal",
-                link: "#",
-                citations: 112,
-                abstract: "A comprehensive review and new methodology for integrating symbolic reasoning into convolutional architectures."
-            },
-            {
-                id: 3,
-                title: "Robustness of Vision Transformers to Adversarial Attacks",
-                authors: "Lee, K., Varchavon, E.",
-                venue: "CVPR 2023",
-                year: 2023,
-                type: "Conference",
-                link: "#",
-                citations: 89,
-                abstract: "Analyzing the fragility of ViTs against gradient-based attacks and proposing a defense mechanism based on frequency filtering."
+                link: "https://doi.org/10.1016/j.atech.2025.101354",
+                abstract: ""
             },
             {
                 id: 4,
-                title: "Cognitive Priors in Machine Learning",
-                authors: "Varchavon, E.",
-                venue: "PhD Thesis, Stanford University",
-                year: 2021,
-                type: "Thesis",
-                link: "#",
-                citations: 15,
-                abstract: "Dissertation exploring how cognitive science principles can serve as inductive biases for training more data-efficient models."
+                title: "Propagation patterns of different degree meteorological droughts across the Yangtze River Basin",
+                authors: "Xing, L., Zhao, R., Sun, H., Tan, Z., Fang, Q., Li, M., Halder, K., et al.",
+                venue: "Journal of Hydrology",
+                year: 2025,
+                type: "Journal",
+                link: "https://doi.org/10.1016/j.jhydrol.2025.133857",
+                abstract: ""
+            },
+            {
+                id: 3,
+                title: "Improving landslide susceptibility prediction through ensemble Recursive Feature Elimination and meta-learning framework",
+                authors: "Halder, K., Srivastava, A. K., et al.",
+                venue: "Scientific Reports",
+                year: 2025,
+                type: "Journal",
+                link: "https://www.nature.com/articles/s41598-025-87587-3",
+                abstract: ""
+            },
+            {
+                id: 2,
+                title: "SAR-driven flood inventory and multi-factor ensemble susceptibility modelling using Machine Learning Frameworks",
+                authors: "Halder, K., Ghosh, A., et al.",
+                venue: "Geomatics, Natural Hazards and Risk",
+                year: 2024,
+                type: "Journal",
+                link: "https://doi.org/10.1080/19475705.2024.2409202",
+                abstract: ""
+            },
+            {
+                id: 1,
+                title: "Application of bagging and boosting ensemble machine learning techniques for groundwater potential mapping",
+                authors: "Halder, K., Srivastava, A. K., et al.",
+                venue: "Environmental Sciences Europe",
+                year: 2024,
+                type: "Journal",
+                link: "https://link.springer.com/article/10.1186/s12302-024-00981-y",
+                abstract: ""
             }
         ];
 
         const PROJECTS = [
             {
-                title: "Project Retina",
-                description: "An open-source framework for visualizing neural network activations in real-time. Used by over 5,000 students worldwide for education.",
-                tags: ["Python", "PyTorch", "Visualization"],
-                link: "#",
+                title: "geeagri",
+                description: "Python package for agricultural analysis powered by Google Earth Engine.",
+                tags: ["Python", "Analysis", "Agriculture", "GEE"],
+                link: "https://geonextgis.github.io/geeagri",
                 status: "Active"
             },
             {
-                title: "CogNet",
-                description: "A collaborative initiative to build datasets that test common-sense reasoning in multimodal models.",
-                tags: ["Dataset", "NSF Grant", "Collaboration"],
-                link: "#",
-                status: "Completed"
-            }
-        ];
-
-        const TEACHING = [
-            {
-                course: "CS231n: Deep Learning for Computer Vision",
-                role: "Guest Lecturer",
-                year: "Spring 2024",
-                institution: "MIT"
-            },
-            {
-                course: "Intro to AI Ethics",
-                role: "Instructor",
-                year: "Fall 2023",
-                institution: "Boston University"
+                title: "cropengine",
+                description: "Python package that automates data preparation, simulation, and analysis for process-based crop models.",
+                tags: ["Python", "Crop Models", "Automation"],
+                link: "https://geonextgis.github.io/cropengine",
+                status: "Active"
             }
         ];
 
@@ -183,10 +390,10 @@
         );
 
         const SectionHeading = ({ title, subtitle }) => (
-            <div className="mb-8">
-                <h2 className="text-3xl font-bold text-slate-900">{title}</h2>
-                {subtitle && <p className="mt-2 text-slate-600">{subtitle}</p>}
-                <div className="w-16 h-1 bg-blue-600 mt-4 rounded-full"></div>
+            <div className="mb-6">
+                <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100">{title}</h2>
+                {subtitle && <p className="mt-2 text-slate-600 dark:text-slate-300">{subtitle}</p>}
+                <div className="w-16 h-1 bg-blue-600 dark:bg-cyan-500 mt-4 rounded-full"></div>
             </div>
         );
 
@@ -206,35 +413,44 @@
             };
 
             return (
-                <div className="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow mb-4">
+                <div className="glass-card p-6 rounded-lg mb-4 hover:border-blue-400/50 dark:hover:border-cyan-500/50 transition-colors group">
                     <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
                         <div className="flex-1">
                             <div className="flex items-center gap-2 mb-2">
-                                <Badge className="bg-blue-100 text-blue-800">{pub.type}</Badge>
-                                <span className="text-slate-500 text-sm">{pub.year}</span>
+                                <Badge className="bg-blue-100/80 dark:bg-cyan-900/50 text-blue-800 dark:text-cyan-200">{pub.type}</Badge>
+                                <span className="text-slate-500 dark:text-slate-400 text-sm">{pub.year}</span>
                             </div>
-                            <h3 className="text-lg font-semibold text-slate-900 mb-1">{pub.title}</h3>
-                            <p className="text-slate-700 mb-2 italic">{pub.authors}</p>
-                            <p className="text-slate-500 text-sm mb-4 font-medium">{pub.venue}</p>
-                            <p className="text-slate-600 text-sm leading-relaxed mb-4">{pub.abstract}</p>
+                            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-1 leading-snug group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors">{pub.title}</h3>
+                            <p className="text-slate-700 dark:text-slate-300 mb-2 italic text-sm">{pub.authors}</p>
+                            <p className="text-slate-500 dark:text-slate-400 text-sm mb-4 font-medium">{pub.venue}</p>
                             
-                            <div className="flex gap-3">
-                                <button className="flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-800">
+                            <div className="flex gap-3 mt-4">
+                                <a 
+                                    href={pub.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="glass-panel inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md text-blue-700 dark:text-cyan-300 hover:bg-white/50 dark:hover:bg-slate-700/50 transition-colors"
+                                >
                                     <FileText size={16} /> PDF
-                                </button>
-                                <button className="flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-slate-800">
+                                </a>
+                                <a 
+                                    href={pub.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="glass-panel inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md text-slate-700 dark:text-slate-300 hover:bg-white/50 dark:hover:bg-slate-700/50 transition-colors"
+                                >
                                     <ExternalLink size={16} /> DOI
-                                </button>
+                                </a>
                             </div>
                         </div>
                         
                         <div className="flex md:flex-col gap-2 shrink-0">
                             <button 
                                 onClick={copyBibtex}
-                                className="p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-700 rounded transition-colors"
+                                className="p-2 text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-slate-700 dark:hover:text-slate-200 rounded transition-colors"
                                 title="Copy BibTeX"
                             >
-                                {copied ? <Check size={20} className="text-green-600" /> : <Copy size={20} />}
+                                {copied ? <Check size={20} className="text-green-600 dark:text-green-400" /> : <Copy size={20} />}
                             </button>
                         </div>
                     </div>
@@ -242,26 +458,48 @@
             );
         };
 
-        // --- MAIN APP COMPONENT ---
+        const SkillCard = ({ title, skills }) => (
+            <div className="glass-card rounded-xl p-6 shadow-sm hover:border-blue-300 dark:hover:border-cyan-500/50 transition-all">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-4">{title}</h3>
+                <div className="flex flex-wrap gap-2">
+                    {skills.map((skill, idx) => (
+                        <span key={idx} className="text-sm bg-white/50 dark:bg-slate-800/50 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-md border border-slate-200 dark:border-slate-600 backdrop-blur-sm">
+                            {skill}
+                        </span>
+                    ))}
+                </div>
+            </div>
+        );
 
+        // --- MAIN APP ---
         function App() {
             const [activeTab, setActiveTab] = useState("home");
             const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-            const [scrolled, setScrolled] = useState(false);
+            const [isDarkMode, setIsDarkMode] = useState(true); // Default to Dark mode for Cosmic Vibe
+            const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
 
-            useEffect(() => {
-                const handleScroll = () => {
-                    setScrolled(window.scrollY > 20);
-                };
-                window.addEventListener('scroll', handleScroll);
-                return () => window.removeEventListener('scroll', handleScroll);
-            }, []);
+            const toggleDarkMode = () => {
+                setIsDarkMode(!isDarkMode);
+            };
+
+            const handleInputChange = (e) => {
+                const { name, value } = e.target;
+                setFormData(prev => ({ ...prev, [name]: value }));
+            };
+
+            const handleSendMessage = (e) => {
+                e.preventDefault();
+                // Construct Mailto Link
+                const subject = encodeURIComponent(formData.subject || "Research Inquiry");
+                const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+                window.location.href = `mailto:${PROFILE.email}?subject=${subject}&body=${body}`;
+            };
 
             const navItems = [
                 { id: "home", label: "Home" },
                 { id: "publications", label: "Publications" },
+                { id: "skills", label: "Skills" },
                 { id: "research", label: "Research" },
-                { id: "teaching", label: "Teaching" },
                 { id: "contact", label: "Contact" },
             ];
 
@@ -269,76 +507,84 @@
                 switch (activeTab) {
                     case "home":
                         return (
-                            <div className="animate-fade-in">
-                                <div className="flex flex-col md:flex-row gap-12 items-start mb-16">
-                                    <div className="w-full md:w-1/3 shrink-0">
-                                        <div className="aspect-square rounded-2xl bg-slate-200 overflow-hidden relative shadow-xl">
-                                            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 text-slate-400">
-                                                <Users size={64} />
+                            <div className="animate-fade-in h-full flex flex-col justify-center py-4 relative z-10">
+                                <div className="flex flex-col md:flex-row gap-8 lg:gap-16 items-center justify-center max-w-5xl mx-auto w-full">
+                                    
+                                    {/* Left Column */}
+                                    <div className="w-full md:w-auto shrink-0 flex flex-col items-center md:items-start">
+                                        <div className="glass-card p-1 rounded-2xl">
+                                            <div className="aspect-square w-40 h-40 lg:w-56 lg:h-56 rounded-xl bg-slate-200 dark:bg-slate-800 overflow-hidden relative shadow-2xl">
+                                                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-800 text-slate-400 dark:text-slate-500">
+                                                    <Users size={64} />
+                                                </div>
+                                                <img 
+                                                    src="/assets/profile_photo.png" 
+                                                    alt="Profile" 
+                                                    className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500"
+                                                    onError={(e) => e.target.style.opacity = 0}
+                                                    onLoad={(e) => e.target.style.opacity = 1}
+                                                />
                                             </div>
-                                            <img 
-                                                src="/api/placeholder/400/400" 
-                                                alt="Profile" 
-                                                className="absolute inset-0 w-full h-full object-cover opacity-0"
-                                                onError={(e) => e.target.style.opacity = 0}
-                                                onLoad={(e) => e.target.style.opacity = 1}
-                                            />
                                         </div>
                                         
-                                        <div className="mt-6 space-y-4">
-                                            <div className="flex items-center gap-3 text-slate-600">
-                                                <Mail size={18} />
-                                                <a href={`mailto:${PROFILE.email}`} className="hover:text-blue-600 transition-colors">{PROFILE.email}</a>
+                                        <div className="mt-6 space-y-3 text-center md:text-left w-full relative z-10">
+                                            <div className="flex items-center justify-center md:justify-start gap-2 text-slate-600 dark:text-slate-300 text-sm hover:text-blue-600 dark:hover:text-cyan-400 transition-colors group cursor-pointer" onClick={() => window.location.href=`mailto:${PROFILE.email}`}>
+                                                <Mail size={16} className="group-hover:scale-110 transition-transform"/>
+                                                <span className="truncate">{PROFILE.email}</span>
                                             </div>
-                                            <div className="flex items-center gap-3 text-slate-600">
-                                                <MapPin size={18} />
+                                            <div className="flex items-center justify-center md:justify-start gap-2 text-slate-600 dark:text-slate-300 text-sm">
+                                                <MapPin size={16} />
                                                 <span>{PROFILE.location}</span>
                                             </div>
-                                            <div className="flex items-center gap-3 text-slate-600">
-                                                <Award size={18} />
-                                                <span>{PROFILE.institution}</span>
-                                            </div>
                                             
-                                            <div className="pt-4 flex gap-4">
-                                                <a href="#" className="p-2 bg-slate-100 rounded-full text-slate-600 hover:bg-slate-800 hover:text-white transition-all">
-                                                    <Github size={20} />
-                                                </a>
-                                                <a href="#" className="p-2 bg-slate-100 rounded-full text-slate-600 hover:bg-blue-700 hover:text-white transition-all">
-                                                    <Linkedin size={20} />
-                                                </a>
-                                                <a href="#" className="p-2 bg-slate-100 rounded-full text-slate-600 hover:bg-blue-500 hover:text-white transition-all">
-                                                    <GraduationCap size={20} />
-                                                </a>
+                                            {/* Social Icons */}
+                                            <div className="pt-2 flex justify-center md:justify-start gap-3">
+                                                {[
+                                                    { icon: Github, link: "https://github.com/geonextgis" },
+                                                    { icon: Linkedin, link: "https://www.linkedin.com/in/krishnagopal-halder/" },
+                                                    { icon: GraduationCap, link: "https://scholar.google.com/citations?user=b02pfFMAAAAJ&hl=en" }
+                                                ].map((social, idx) => (
+                                                    <a key={idx} href={social.link} target="_blank" rel="noopener noreferrer" className="glass-panel p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-800 dark:hover:bg-cyan-900/30 hover:text-white dark:hover:text-cyan-300 transition-all hover:scale-110">
+                                                        <social.icon size={18} />
+                                                    </a>
+                                                ))}
                                             </div>
 
-                                            <button className="w-full mt-4 flex items-center justify-center gap-2 bg-slate-900 text-white py-2.5 rounded-lg hover:bg-slate-800 transition-colors font-medium">
-                                                <Download size={18} /> Download CV
+                                            {/* CV Button */}
+                                            <button
+                                                onClick={() => window.open('https://www.overleaf.com/download/project/67291295fcdbd0597f8d5410/build/19ad68f2fe0-1b2c1c390328148f/output/output.pdf?compileGroup=standard&clsiserverid=clsi-pre-emp-c3d-d-f-5h50&enable_pdf_caching=true&popupDownload=true', '_blank')}
+                                                className="w-full mt-4 flex items-center justify-center gap-2 bg-slate-900/90 dark:bg-cyan-600/90 backdrop-blur text-white py-2.5 rounded-lg hover:bg-slate-800 dark:hover:bg-cyan-500 transition-all shadow-lg hover:shadow-cyan-500/20 active:scale-95 text-sm font-medium"
+                                            >
+                                                <Download size={16} /> Download CV
                                             </button>
                                         </div>
                                     </div>
 
-                                    <div className="flex-1">
-                                        <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">{PROFILE.name}</h1>
-                                        <h2 className="text-xl text-blue-600 font-medium mb-6">{PROFILE.title}</h2>
+                                    {/* Right Column */}
+                                    <div className="flex-1 text-center md:text-left max-w-2xl relative z-10">
+                                        <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-white dark:to-slate-400 mb-2">{PROFILE.name}</h1>
+                                        <h2 className="text-lg lg:text-xl text-blue-600 dark:text-cyan-400 font-medium mb-6">{PROFILE.title}</h2>
                                         
-                                        <div className="prose prose-lg text-slate-600 mb-8 leading-relaxed">
+                                        <div className="prose prose-sm lg:prose-base text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
                                             <p>{PROFILE.bio}</p>
                                         </div>
 
-                                        <div className="grid grid-cols-3 gap-4 mb-10">
+                                        {/* Stats */}
+                                        <div className="grid grid-cols-3 gap-3 mb-8">
                                             {PROFILE.stats.map((stat, idx) => (
-                                                <div key={idx} className="bg-slate-50 p-4 rounded-lg text-center border border-slate-100">
-                                                    <div className="text-2xl font-bold text-slate-900">{stat.value}</div>
-                                                    <div className="text-xs uppercase tracking-wider text-slate-500 mt-1">{stat.label}</div>
+                                                <div key={idx} className="glass-card p-3 rounded-xl text-center">
+                                                    <div className="text-xl font-bold text-slate-900 dark:text-white">{stat.value}</div>
+                                                    <div className="text-[10px] lg:text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 mt-1">{stat.label}</div>
                                                 </div>
                                             ))}
                                         </div>
 
+                                        {/* Interests */}
                                         <div>
-                                            <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-wide text-sm">Research Interests</h3>
-                                            <div className="flex flex-wrap gap-2">
+                                            <h3 className="text-sm font-bold text-slate-900 dark:text-slate-200 mb-3 uppercase tracking-wide">Research Interests</h3>
+                                            <div className="flex flex-wrap justify-center md:justify-start gap-2">
                                                 {PROFILE.interests.map((interest, idx) => (
-                                                    <Badge key={idx} className="bg-white border border-slate-200 text-slate-700 px-4 py-2 text-sm shadow-sm">
+                                                    <Badge key={idx} className="glass-panel text-slate-700 dark:text-cyan-100 px-3 py-1.5 text-xs lg:text-sm shadow-sm border border-slate-200 dark:border-cyan-500/30 hover:border-cyan-400 transition-colors cursor-default">
                                                         {interest}
                                                     </Badge>
                                                 ))}
@@ -351,7 +597,7 @@
 
                     case "publications":
                         return (
-                            <div className="animate-fade-in">
+                            <div className="animate-fade-in pb-12 relative z-10">
                                 <SectionHeading 
                                     title="Publications" 
                                     subtitle="Selected peer-reviewed journal articles and conference proceedings." 
@@ -364,37 +610,52 @@
                             </div>
                         );
 
+                    case "skills":
+                        return (
+                            <div className="animate-fade-in pb-12 relative z-10">
+                                <SectionHeading 
+                                    title="Skills & Expertise" 
+                                    subtitle="Technical proficiency in programming, software, and methodologies." 
+                                />
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    {Object.entries(SKILLS_DATA).map(([category, skills], idx) => (
+                                        <SkillCard key={idx} title={category} skills={skills} />
+                                    ))}
+                                </div>
+                            </div>
+                        );
+
                     case "research":
                         return (
-                            <div className="animate-fade-in">
+                            <div className="animate-fade-in pb-12 relative z-10">
                                 <SectionHeading 
                                     title="Research Projects" 
                                     subtitle="Current and past funded research initiatives and software contributions." 
                                 />
                                 <div className="grid md:grid-cols-2 gap-6">
                                     {PROJECTS.map((project, idx) => (
-                                        <div key={idx} className="group bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-blue-300 transition-all hover:shadow-md">
-                                            <div className="h-2 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
+                                        <div key={idx} className="glass-card rounded-xl overflow-hidden hover:border-blue-400 dark:hover:border-cyan-500 transition-all hover:shadow-lg hover:shadow-cyan-500/10 cursor-pointer group" onClick={() => window.open(project.link, '_blank')}>
+                                            <div className="h-1 bg-gradient-to-r from-blue-500 to-cyan-500"></div>
                                             <div className="p-6">
                                                 <div className="flex justify-between items-start mb-4">
-                                                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">{project.title}</h3>
-                                                    <Badge className={project.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-slate-100 text-slate-600'}>
+                                                    <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors">{project.title}</h3>
+                                                    <Badge className={project.status === 'Active' ? 'bg-green-100/50 dark:bg-green-900/30 text-green-800 dark:text-green-300 backdrop-blur' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}>
                                                         {project.status}
                                                     </Badge>
                                                 </div>
-                                                <p className="text-slate-600 mb-6 h-20">{project.description}</p>
+                                                <p className="text-slate-600 dark:text-slate-300 mb-6 h-20">{project.description}</p>
                                                 
                                                 <div className="flex items-center justify-between mt-auto">
                                                     <div className="flex gap-2">
                                                         {project.tags.map((tag, tIdx) => (
-                                                            <span key={tIdx} className="text-xs text-slate-500 bg-slate-50 px-2 py-1 rounded border border-slate-100">
+                                                            <span key={tIdx} className="text-xs text-slate-500 dark:text-slate-400 bg-slate-50/50 dark:bg-slate-700/50 px-2 py-1 rounded border border-slate-200 dark:border-slate-600 backdrop-blur">
                                                                 {tag}
                                                             </span>
                                                         ))}
                                                     </div>
-                                                    <a href={project.link} className="p-2 text-slate-400 hover:text-blue-600 transition-colors">
+                                                    <span className="p-2 text-slate-400 dark:text-slate-500 group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors group-hover:translate-x-1 duration-300">
                                                         <ChevronRight size={20} />
-                                                    </a>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -403,64 +664,65 @@
                             </div>
                         );
 
-                    case "teaching":
-                        return (
-                            <div className="animate-fade-in">
-                                <SectionHeading title="Teaching Experience" />
-                                <div className="bg-white rounded-lg border border-slate-200 shadow-sm overflow-hidden">
-                                    <table className="w-full text-left">
-                                        <thead className="bg-slate-50 border-b border-slate-200">
-                                            <tr>
-                                                <th className="p-4 font-semibold text-slate-700">Course</th>
-                                                <th className="p-4 font-semibold text-slate-700">Institution</th>
-                                                <th className="p-4 font-semibold text-slate-700">Role</th>
-                                                <th className="p-4 font-semibold text-slate-700">Year</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody className="divide-y divide-slate-100">
-                                            {TEACHING.map((item, idx) => (
-                                                <tr key={idx} className="hover:bg-slate-50 transition-colors">
-                                                    <td className="p-4 text-slate-900 font-medium">{item.course}</td>
-                                                    <td className="p-4 text-slate-600">{item.institution}</td>
-                                                    <td className="p-4 text-slate-600">{item.role}</td>
-                                                    <td className="p-4 text-slate-500 flex items-center gap-2">
-                                                        <Calendar size={14} /> {item.year}
-                                                    </td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        );
-
                     case "contact":
                         return (
-                            <div className="animate-fade-in max-w-2xl mx-auto">
+                            <div className="animate-fade-in max-w-2xl mx-auto pb-12 relative z-10">
                                 <SectionHeading title="Get in Touch" subtitle="I am always open to discussing new research collaborations and speaking opportunities." />
                                 
-                                <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-lg">
-                                    <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                                <div className="glass-card p-8 rounded-2xl shadow-xl">
+                                    <form className="space-y-6" onSubmit={handleSendMessage}>
                                         <div className="grid md:grid-cols-2 gap-6">
                                             <div>
-                                                <label className="block text-sm font-medium text-slate-700 mb-2">Name</label>
-                                                <input type="text" className="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all" placeholder="John Doe" />
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Name</label>
+                                                <input 
+                                                    type="text" 
+                                                    name="name"
+                                                    value={formData.name}
+                                                    onChange={handleInputChange}
+                                                    className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white/50 dark:bg-slate-900/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent outline-none transition-all backdrop-blur-sm" 
+                                                    placeholder="John Doe" 
+                                                    required
+                                                />
                                             </div>
                                             <div>
-                                                <label className="block text-sm font-medium text-slate-700 mb-2">Email</label>
-                                                <input type="email" className="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all" placeholder="john@university.edu" />
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email</label>
+                                                <input 
+                                                    type="email" 
+                                                    name="email"
+                                                    value={formData.email}
+                                                    onChange={handleInputChange}
+                                                    className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white/50 dark:bg-slate-900/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent outline-none transition-all backdrop-blur-sm" 
+                                                    placeholder="john@university.edu" 
+                                                    required
+                                                />
                                             </div>
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-medium text-slate-700 mb-2">Subject</label>
-                                            <input type="text" className="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all" placeholder="Research Collaboration" />
+                                            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Subject</label>
+                                            <input 
+                                                type="text" 
+                                                name="subject"
+                                                value={formData.subject}
+                                                onChange={handleInputChange}
+                                                className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white/50 dark:bg-slate-900/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent outline-none transition-all backdrop-blur-sm" 
+                                                placeholder="Research Collaboration" 
+                                                required
+                                            />
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
-                                            <textarea rows="4" className="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none" placeholder="Hello Dr. Varchavon..."></textarea>
+                                            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Message</label>
+                                            <textarea 
+                                                rows="4" 
+                                                name="message"
+                                                value={formData.message}
+                                                onChange={handleInputChange}
+                                                className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white/50 dark:bg-slate-900/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent outline-none transition-all resize-none backdrop-blur-sm" 
+                                                placeholder="Hello, I'd like to discuss..."
+                                                required
+                                            ></textarea>
                                         </div>
-                                        <button className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2">
-                                            <Mail size={20} /> Send Message
+                                        <button className="w-full bg-blue-600 dark:bg-cyan-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-cyan-500 transition-all flex items-center justify-center gap-2 shadow-lg active:scale-95 group">
+                                            <Send size={20} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" /> Send Message
                                         </button>
                                     </form>
                                 </div>
@@ -473,85 +735,103 @@
             };
 
             return (
-                <div className="min-h-screen bg-slate-50">
-                    {/* Sticky Navigation */}
-                    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-3' : 'bg-white py-5 border-b border-slate-200'}`}>
-                        <div className="max-w-5xl mx-auto px-4 md:px-8 flex justify-between items-center">
-                            <div className="text-xl font-bold tracking-tight flex items-center gap-2 cursor-pointer" onClick={() => setActiveTab('home')}>
-                                <span className="bg-blue-600 text-white p-1.5 rounded-lg">
-                                    <BookOpen size={20} />
-                                </span>
-                                <span className="hidden md:block">{PROFILE.name}</span>
-                                <span className="md:hidden">E.V.</span>
-                            </div>
+                <div className={`${isDarkMode ? 'dark' : ''} h-screen w-full flex flex-col`}>
+                    <div className="flex-1 flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-500 overflow-hidden relative">
+                        
+                        {/* Neural Network Canvas Background */}
+                        <NeuralBackground isDark={isDarkMode} />
 
-                            {/* Desktop Menu */}
-                            <div className="hidden md:flex items-center gap-1 bg-slate-100/50 p-1 rounded-full">
-                                {navItems.map((item) => (
-                                    <button
-                                        key={item.id}
-                                        onClick={() => setActiveTab(item.id)}
-                                        className={`px-5 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
-                                            activeTab === item.id 
-                                                ? 'bg-white text-blue-600 shadow-sm' 
-                                                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
-                                        }`}
+                        {/* Fixed Navbar */}
+                        <nav className="shrink-0 w-full z-50 glass-panel border-b border-white/10 py-4 shadow-sm transition-colors relative">
+                            <div className="max-w-5xl mx-auto px-4 md:px-8 flex justify-between items-center">
+                                {/* Logo / Name */}
+                                <div className="text-xl font-bold tracking-tight flex items-center gap-2 cursor-pointer text-slate-900 dark:text-white group" onClick={() => setActiveTab('home')}>
+                                    <span className="bg-blue-600 dark:bg-cyan-600 text-white p-1.5 rounded-lg group-hover:bg-blue-700 dark:group-hover:bg-cyan-500 transition-colors shadow-lg shadow-cyan-500/20">
+                                        <BookOpen size={20} />
+                                    </span>
+                                    <span className="hidden md:block group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors">{PROFILE.name}</span>
+                                    <span className="md:hidden">K.H.</span>
+                                </div>
+
+                                <div className="flex items-center gap-4">
+                                    {/* Desktop Menu */}
+                                    <div className="hidden md:flex items-center gap-1 glass-panel p-1 rounded-full">
+                                        {navItems.map((item) => (
+                                            <button
+                                                key={item.id}
+                                                onClick={() => setActiveTab(item.id)}
+                                                className={`px-5 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                                                    activeTab === item.id 
+                                                        ? 'bg-white dark:bg-slate-800 text-blue-600 dark:text-cyan-400 shadow-sm' 
+                                                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-700/50'
+                                                }`}
+                                            >
+                                                {item.label}
+                                            </button>
+                                        ))}
+                                    </div>
+
+                                    {/* Dark Mode Toggle */}
+                                    <button 
+                                        onClick={toggleDarkMode}
+                                        className="p-2 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors glass-panel"
+                                        aria-label="Toggle Dark Mode"
                                     >
-                                        {item.label}
+                                        {isDarkMode ? <SunIcon size={20} /> : <Moon size={20} />}
                                     </button>
-                                ))}
-                            </div>
 
-                            {/* Mobile Menu Toggle */}
-                            <button 
-                                className="md:hidden p-2 text-slate-600"
-                                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            >
-                                {mobileMenuOpen ? <X /> : <Menu />}
-                            </button>
-                        </div>
-                    </nav>
-
-                    {/* Mobile Menu Overlay */}
-                    {mobileMenuOpen && (
-                        <div className="fixed inset-0 z-40 bg-white pt-24 px-6 md:hidden animate-fade-in">
-                            <div className="flex flex-col gap-4">
-                                {navItems.map((item) => (
-                                    <button
-                                        key={item.id}
-                                        onClick={() => {
-                                            setActiveTab(item.id);
-                                            setMobileMenuOpen(false);
-                                        }}
-                                        className={`text-xl font-medium text-left py-3 border-b border-slate-100 ${
-                                            activeTab === item.id ? 'text-blue-600' : 'text-slate-600'
-                                        }`}
+                                    {/* Mobile Menu Toggle */}
+                                    <button 
+                                        className="md:hidden p-2 text-slate-600 dark:text-slate-300 glass-panel rounded-lg"
+                                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                                     >
-                                        {item.label}
+                                        {mobileMenuOpen ? <X /> : <Menu />}
                                     </button>
-                                ))}
+                                </div>
                             </div>
-                        </div>
-                    )}
+                        </nav>
 
-                    {/* Main Content Area */}
-                    <main className="max-w-5xl mx-auto px-4 md:px-8 pt-32 pb-20">
-                        {renderContent()}
-                    </main>
+                        {/* Mobile Menu Overlay */}
+                        {mobileMenuOpen && (
+                            <div className="fixed inset-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl pt-24 px-6 md:hidden animate-fade-in">
+                                <div className="flex flex-col gap-4">
+                                    {navItems.map((item) => (
+                                        <button
+                                            key={item.id}
+                                            onClick={() => {
+                                                setActiveTab(item.id);
+                                                setMobileMenuOpen(false);
+                                            }}
+                                            className={`text-xl font-medium text-left py-3 border-b border-slate-100 dark:border-slate-800 ${
+                                                activeTab === item.id ? 'text-blue-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400'
+                                            }`}
+                                        >
+                                            {item.label}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
 
-                    {/* Footer */}
-                    <footer className="bg-white border-t border-slate-200 py-8 mt-auto">
-                        <div className="max-w-5xl mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-                            <div>
-                                © {new Date().getFullYear()} {PROFILE.name}. All rights reserved.
+                        {/* Main Content Area */}
+                        <main className={`flex-1 w-full max-w-5xl mx-auto px-4 md:px-8 relative z-10 ${activeTab === 'home' ? 'overflow-hidden flex flex-col justify-center' : 'overflow-y-auto custom-scroll pt-8'}`}>
+                            {renderContent()}
+                        </main>
+
+                        {/* Footer */}
+                        <footer className="shrink-0 glass-panel border-t border-white/10 py-6 transition-colors relative z-10">
+                            <div className="max-w-5xl mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs md:text-sm text-slate-500 dark:text-slate-400">
+                                <div>
+                                    © {new Date().getFullYear()} {PROFILE.name}. All rights reserved.
+                                </div>
+                                <div className="flex gap-6">
+                                    <a href="https://scholar.google.com/citations?user=b02pfFMAAAAJ&hl=en" className="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Google Scholar</a>
+                                    <a href="https://www.researchgate.net/profile/Krishnagopal-Halder-2" className="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">ResearchGate</a>
+                                    <a href="https://www.linkedin.com/in/krishnagopal-halder/" className="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">LinkedIn</a>
+                                </div>
                             </div>
-                            <div className="flex gap-6">
-                                <a href="#" className="hover:text-blue-600 transition-colors">Google Scholar</a>
-                                <a href="#" className="hover:text-blue-600 transition-colors">ResearchGate</a>
-                                <a href="#" className="hover:text-blue-600 transition-colors">Twitter/X</a>
-                            </div>
-                        </div>
-                    </footer>
+                        </footer>
+                    </div>
                 </div>
             );
         }
