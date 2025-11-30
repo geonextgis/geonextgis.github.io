@@ -1,0 +1,58 @@
+name: Sync Overleaf & Build PDF
+
+on:
+  # Run manually from GitHub Actions tab
+  workflow_dispatch:
+  # Run automatically every 24 hours (optional)
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed to create releases
+
+    steps:
+      # 1. Checkout your repo
+      - name: Checkout Git Repo
+        uses: actions/checkout@v4
+
+      # 2. Pull latest .tex files from Overleaf (The Magic Step)
+      - name: Sync with Overleaf
+        uses: subhamx/overleaf_sync_with_git@master
+        with:
+          OVERLEAF_PROJECT_ID: ${{ secrets.OVERLEAF_PROJECT_ID }}
+          OVERLEAF_COOKIE: ${{ secrets.OVERLEAF_COOKIE }}
+        # This will overwrite local files with Overleaf files
+
+      # 3. Commit changes back to repo (so you have a code backup)
+      - name: Commit Overleaf Changes
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git add .
+          git commit -m "Sync from Overleaf" || echo "No changes to commit"
+          git push
+
+      # 4. Compile the PDF
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main_cv.tex  # CHANGE THIS to your .tex filename (e.g. cv.tex)
+
+      # 5. Rename output
+      - name: Rename PDF
+        run: mv main.pdf Krishnagopal_Halder_CV.pdf
+
+      # 6. Publish the PDF to a Stable URL
+      - name: Upload to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: Latest CV
+          body: "Automatic sync from Overleaf."
+          files: Krishnagopal_Halder_CV.pdf
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
