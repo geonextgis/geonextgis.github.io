@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Krishnagopal Halder - Portfolio</title>
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -16,7 +16,7 @@
                     },
                     colors: {
                         slate: {
-                            850: '#1e293b', 
+                            850: '#1e293b',
                             900: '#0f172a',
                             950: '#020617', // Deep cosmic background
                         },
@@ -33,21 +33,21 @@
             }
         }
     </script>
-    
+
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    
+
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
+
         body {
             font-family: 'Inter', sans-serif;
             transition: background-color 0.3s, color 0.3s;
-            overflow: hidden; 
+            overflow: hidden;
         }
-        
+
         @keyframes fade-in {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -70,7 +70,7 @@
         .dark ::-webkit-scrollbar-thumb {
             background-color: rgba(71, 85, 105, 0.5);
         }
-        
+
         /* Glass Utilities */
         .glass-panel {
             background: rgba(255, 255, 255, 0.7);
@@ -82,7 +82,7 @@
             background: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .glass-card {
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(8px);
@@ -154,7 +154,7 @@
                 let animationFrameId;
                 let particles = [];
                 let width, height;
-                
+
                 // Mouse interaction
                 let mouse = { x: null, y: null, radius: 150 };
 
@@ -202,7 +202,7 @@
                         ctx.beginPath();
                         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                         // Node color
-                        ctx.fillStyle = isDark ? '#22d3ee' : '#64748b'; 
+                        ctx.fillStyle = isDark ? '#22d3ee' : '#64748b';
                         ctx.fill();
                     }
                 }
@@ -210,7 +210,7 @@
                 const initParticles = () => {
                     particles = [];
                     // Adjust density based on screen size
-                    const numberOfParticles = (width * height) / 15000; 
+                    const numberOfParticles = (width * height) / 15000;
                     for (let i = 0; i < numberOfParticles; i++) {
                         particles.push(new Particle());
                     }
@@ -235,7 +235,7 @@
                                 ctx.stroke();
                             }
                         }
-                        
+
                         // Connect to mouse
                         if (mouse.x != null) {
                             let dx = particles[a].x - mouse.x;
@@ -257,7 +257,7 @@
                 const animate = () => {
                     requestAnimationFrame(animate);
                     ctx.clearRect(0, 0, width, height);
-                    
+
                     particles.forEach(particle => {
                         particle.update();
                         particle.draw();
@@ -284,9 +284,9 @@
             }, [isDark]);
 
             return (
-                <canvas 
-                    ref={canvasRef} 
-                    className="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-50 dark:opacity-40" 
+                <canvas
+                    ref={canvasRef}
+                    className="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-50 dark:opacity-40"
                 />
             );
         };
@@ -427,9 +427,9 @@
                             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-1 leading-snug group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors">{pub.title}</h3>
                             <p className="text-slate-700 dark:text-slate-300 mb-2 italic text-sm">{pub.authors}</p>
                             <p className="text-slate-500 dark:text-slate-400 text-sm mb-4 font-medium">{pub.venue}</p>
-                            
+
                             <div className="flex gap-3 mt-4">
-                                <a 
+                                <a
                                     href={pub.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -437,7 +437,7 @@
                                 >
                                     <FileText size={16} /> PDF
                                 </a>
-                                <a 
+                                <a
                                     href={pub.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -447,9 +447,9 @@
                                 </a>
                             </div>
                         </div>
-                        
+
                         <div className="flex md:flex-col gap-2 shrink-0">
-                            <button 
+                            <button
                                 onClick={copyBibtex}
                                 className="p-2 text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-slate-700 dark:hover:text-slate-200 rounded transition-colors"
                                 title="Copy BibTeX"
@@ -514,7 +514,7 @@
                 if (lowerQuery.includes('who') || lowerQuery.includes('bio') || lowerQuery.includes('about')) {
                     return PROFILE.bio;
                 }
-                
+
                 return "I'm not sure about that specific detail, but I can tell you about his Research, Skills, Projects, or Contact info. Try asking 'What are his skills?'";
             };
 
@@ -573,8 +573,8 @@
                                 {messages.map((msg, idx) => (
                                     <div key={idx} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                                         <div className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm ${
-                                            msg.sender === 'user' 
-                                            ? 'bg-blue-600 dark:bg-cyan-600 text-white rounded-br-none' 
+                                            msg.sender === 'user'
+                                            ? 'bg-blue-600 dark:bg-cyan-600 text-white rounded-br-none'
                                             : 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-bl-none border border-slate-200 dark:border-slate-700'
                                         }`}>
                                             {msg.text}
@@ -597,7 +597,7 @@
                             {messages.length < 3 && !isTyping && (
                                 <div className="px-4 pb-2 flex gap-2 overflow-x-auto custom-scroll shrink-0">
                                     {suggestionChips.map((chip, idx) => (
-                                        <button 
+                                        <button
                                             key={idx}
                                             onClick={() => handleChipClick(chip.query)}
                                             className="whitespace-nowrap text-xs bg-slate-100 dark:bg-slate-800 hover:bg-blue-100 dark:hover:bg-slate-700 text-slate-600 dark:text-cyan-400 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 transition-colors"
@@ -611,15 +611,15 @@
                             {/* Input */}
                             <form onSubmit={handleSend} className="p-3 border-t border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 shrink-0">
                                 <div className="relative">
-                                    <input 
-                                        type="text" 
+                                    <input
+                                        type="text"
                                         value={input}
                                         onChange={(e) => setInput(e.target.value)}
                                         placeholder="Ask a question..."
                                         className="w-full pl-4 pr-10 py-2.5 rounded-xl text-sm bg-slate-100 dark:bg-slate-950 border-none outline-none focus:ring-2 focus:ring-cyan-500 text-slate-900 dark:text-white placeholder-slate-400"
                                     />
-                                    <button 
-                                        type="submit" 
+                                    <button
+                                        type="submit"
                                         disabled={!input.trim()}
                                         className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-blue-600 dark:text-cyan-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg disabled:opacity-50 transition-colors"
                                     >
@@ -631,7 +631,7 @@
                     )}
 
                     {/* FAB Toggle */}
-                    <button 
+                    <button
                         onClick={() => setIsOpen(!isOpen)}
                         className="pointer-events-auto h-14 w-14 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg shadow-cyan-500/30 flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 group"
                     >
@@ -679,7 +679,7 @@
                         return (
                             <div className="animate-fade-in min-h-full flex flex-col justify-center py-12 relative z-10">
                                 <div className="flex flex-col md:flex-row gap-8 lg:gap-16 items-center justify-center max-w-5xl mx-auto w-full">
-                                    
+
                                     {/* Left Column */}
                                     <div className="w-full md:w-auto shrink-0 flex flex-col items-center md:items-start">
                                         <div className="glass-card p-1 rounded-2xl">
@@ -687,16 +687,16 @@
                                                 <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-800 text-slate-400 dark:text-slate-500">
                                                     <Users size={64} />
                                                 </div>
-                                                <img 
-                                                    src="/assets/profile_photo.png" 
-                                                    alt="Profile" 
+                                                <img
+                                                    src="/assets/profile_photo.png"
+                                                    alt="Profile"
                                                     className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500"
                                                     onError={(e) => e.target.style.opacity = 0}
                                                     onLoad={(e) => e.target.style.opacity = 1}
                                                 />
                                             </div>
                                         </div>
-                                        
+
                                         <div className="mt-6 space-y-3 text-center md:text-left w-full relative z-10">
                                             <div className="flex items-center justify-center md:justify-start gap-2 text-slate-600 dark:text-slate-300 text-sm hover:text-blue-600 dark:hover:text-cyan-400 transition-colors group cursor-pointer" onClick={() => window.location.href=`mailto:${PROFILE.email}`}>
                                                 <Mail size={16} className="group-hover:scale-110 transition-transform"/>
@@ -706,7 +706,7 @@
                                                 <MapPin size={16} />
                                                 <span>{PROFILE.location}</span>
                                             </div>
-                                            
+
                                             {/* Social Icons */}
                                             <div className="pt-2 flex justify-center md:justify-start gap-3">
                                                 {[
@@ -734,7 +734,7 @@
                                     <div className="flex-1 text-center md:text-left max-w-2xl relative z-10">
                                         <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-white dark:to-slate-400 mb-2">{PROFILE.name}</h1>
                                         <h2 className="text-lg lg:text-xl text-blue-600 dark:text-cyan-400 font-medium mb-6">{PROFILE.title}</h2>
-                                        
+
                                         <div className="prose prose-sm lg:prose-base text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
                                             <p>{PROFILE.bio}</p>
                                         </div>
@@ -768,9 +768,9 @@
                     case "publications":
                         return (
                             <div className="animate-fade-in pb-12 relative z-10">
-                                <SectionHeading 
-                                    title="Publications" 
-                                    subtitle="Selected peer-reviewed journal articles and conference proceedings." 
+                                <SectionHeading
+                                    title="Publications"
+                                    subtitle="Selected peer-reviewed journal articles and conference proceedings."
                                 />
                                 <div className="space-y-4">
                                     {PUBLICATIONS.map((pub) => (
@@ -783,9 +783,9 @@
                     case "skills":
                         return (
                             <div className="animate-fade-in pb-12 relative z-10">
-                                <SectionHeading 
-                                    title="Skills & Expertise" 
-                                    subtitle="Technical proficiency in programming, software, and methodologies." 
+                                <SectionHeading
+                                    title="Skills & Expertise"
+                                    subtitle="Technical proficiency in programming, software, and methodologies."
                                 />
                                 <div className="grid md:grid-cols-2 gap-6">
                                     {Object.entries(SKILLS_DATA).map(([category, skills], idx) => (
@@ -798,9 +798,9 @@
                     case "research":
                         return (
                             <div className="animate-fade-in pb-12 relative z-10">
-                                <SectionHeading 
-                                    title="Research Projects" 
-                                    subtitle="Current and past funded research initiatives and software contributions." 
+                                <SectionHeading
+                                    title="Research Projects"
+                                    subtitle="Current and past funded research initiatives and software contributions."
                                 />
                                 <div className="grid md:grid-cols-2 gap-6">
                                     {PROJECTS.map((project, idx) => (
@@ -814,7 +814,7 @@
                                                     </Badge>
                                                 </div>
                                                 <p className="text-slate-600 dark:text-slate-300 mb-6 h-20">{project.description}</p>
-                                                
+
                                                 <div className="flex items-center justify-between mt-auto">
                                                     <div className="flex gap-2">
                                                         {project.tags.map((tag, tIdx) => (
@@ -838,55 +838,55 @@
                         return (
                             <div className="animate-fade-in max-w-2xl mx-auto pb-12 relative z-10">
                                 <SectionHeading title="Get in Touch" subtitle="I am always open to discussing new research collaborations and speaking opportunities." />
-                                
+
                                 <div className="glass-card p-8 rounded-2xl shadow-xl">
                                     <form className="space-y-6" onSubmit={handleSendMessage}>
                                         <div className="grid md:grid-cols-2 gap-6">
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Name</label>
-                                                <input 
-                                                    type="text" 
+                                                <input
+                                                    type="text"
                                                     name="name"
                                                     value={formData.name}
                                                     onChange={handleInputChange}
-                                                    className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white/50 dark:bg-slate-900/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent outline-none transition-all backdrop-blur-sm" 
-                                                    placeholder="John Doe" 
+                                                    className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white/50 dark:bg-slate-900/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent outline-none transition-all backdrop-blur-sm"
+                                                    placeholder="John Doe"
                                                     required
                                                 />
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email</label>
-                                                <input 
-                                                    type="email" 
+                                                <input
+                                                    type="email"
                                                     name="email"
                                                     value={formData.email}
                                                     onChange={handleInputChange}
-                                                    className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white/50 dark:bg-slate-900/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent outline-none transition-all backdrop-blur-sm" 
-                                                    placeholder="john@university.edu" 
+                                                    className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white/50 dark:bg-slate-900/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent outline-none transition-all backdrop-blur-sm"
+                                                    placeholder="john@university.edu"
                                                     required
                                                 />
                                             </div>
                                         </div>
                                         <div>
                                             <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Subject</label>
-                                            <input 
-                                                type="text" 
+                                            <input
+                                                type="text"
                                                 name="subject"
                                                 value={formData.subject}
                                                 onChange={handleInputChange}
-                                                className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white/50 dark:bg-slate-900/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent outline-none transition-all backdrop-blur-sm" 
-                                                placeholder="Research Collaboration" 
+                                                className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white/50 dark:bg-slate-900/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent outline-none transition-all backdrop-blur-sm"
+                                                placeholder="Research Collaboration"
                                                 required
                                             />
                                         </div>
                                         <div>
                                             <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Message</label>
-                                            <textarea 
-                                                rows="4" 
+                                            <textarea
+                                                rows="4"
                                                 name="message"
                                                 value={formData.message}
                                                 onChange={handleInputChange}
-                                                className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white/50 dark:bg-slate-900/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent outline-none transition-all resize-none backdrop-blur-sm" 
+                                                className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white/50 dark:bg-slate-900/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent outline-none transition-all resize-none backdrop-blur-sm"
                                                 placeholder="Hello, I'd like to discuss..."
                                                 required
                                             ></textarea>
@@ -898,7 +898,7 @@
                                 </div>
                             </div>
                         );
-                    
+
                     default:
                         return null;
                 }
@@ -907,7 +907,7 @@
             return (
                 <div className={`${isDarkMode ? 'dark' : ''} h-screen w-full flex flex-col`}>
                     <div className="flex-1 flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-500 overflow-hidden relative">
-                        
+
                         {/* Neural Network Canvas Background */}
                         <NeuralBackground isDark={isDarkMode} />
 
@@ -931,8 +931,8 @@
                                                 key={item.id}
                                                 onClick={() => setActiveTab(item.id)}
                                                 className={`px-5 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                                                    activeTab === item.id 
-                                                        ? 'bg-white dark:bg-slate-800 text-blue-600 dark:text-cyan-400 shadow-sm' 
+                                                    activeTab === item.id
+                                                        ? 'bg-white dark:bg-slate-800 text-blue-600 dark:text-cyan-400 shadow-sm'
                                                         : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-700/50'
                                                 }`}
                                             >
@@ -942,7 +942,7 @@
                                     </div>
 
                                     {/* Dark Mode Toggle */}
-                                    <button 
+                                    <button
                                         onClick={toggleDarkMode}
                                         className="p-2 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors glass-panel"
                                         aria-label="Toggle Dark Mode"
@@ -951,7 +951,7 @@
                                     </button>
 
                                     {/* Mobile Menu Toggle */}
-                                    <button 
+                                    <button
                                         className="md:hidden p-2 text-slate-600 dark:text-slate-300 glass-panel rounded-lg"
                                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                                     >
@@ -1001,10 +1001,10 @@
                                 </div>
                             </div>
                         </footer>
-                        
+
                         {/* CHATBOT INTEGRATION HERE */}
                         <Chatbot setActiveTab={setActiveTab} />
-                        
+
                     </div>
                 </div>
             );
