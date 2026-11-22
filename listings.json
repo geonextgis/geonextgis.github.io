@@ -1,0 +1,45 @@
+[
+  {
+    "listing": "/presentations.html",
+    "items": [
+      "/presentations/2026_05_EGU_planetary_boundaries.html",
+      "/presentations/2025_10_Pantnagar_phenology.html",
+      "/presentations/2025_04_EGU_diffusion_models.html",
+      "/presentations/2025_04_EGU_CORINE.html",
+      "/presentations/2024_02_R-FARM_Bonn.html",
+      "/presentations/2023_09_Rampurhat_seminar.html"
+    ]
+  },
+  {
+    "listing": "/publications.html",
+    "items": []
+  },
+  {
+    "listing": "/about.html",
+    "items": []
+  },
+  {
+    "listing": "/posts.html",
+    "items": [
+      "/posts/2026-10-01-phd-university-of-bonn.html",
+      "/posts/2025-09-01-tropentag-hy4cast-workshop.html",
+      "/posts/2025-04-01-egu-2025-posters.html",
+      "/posts/2025-01-01-joining-zalf.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/presentations/2026_05_EGU_planetary_boundaries.html",
+      "/presentations/2025_10_Pantnagar_phenology.html",
+      "/presentations/2025_04_EGU_diffusion_models.html",
+      "/presentations/2025_04_EGU_CORINE.html",
+      "/presentations/2024_02_R-FARM_Bonn.html",
+      "/presentations/2023_09_Rampurhat_seminar.html",
+      "/posts/2026-10-01-phd-university-of-bonn.html",
+      "/posts/2025-09-01-tropentag-hy4cast-workshop.html",
+      "/posts/2025-04-01-egu-2025-posters.html",
+      "/posts/2025-01-01-joining-zalf.html"
+    ]
+  }
+]
