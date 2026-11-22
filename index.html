@@ -91,9 +91,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-authors','listing-year','listing-journal','listing-doi','listing-data_url','listing-code_url','listing-preprint_url','listing-bibtex',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-title','listing-authors','listing-year','listing-journal','listing-doi','listing-data_url','listing-code_url','listing-preprint_url','listing-bibtex','listing-summary',{ data: ['index'] },{ data: ['categories'] }],
       
-      searchColumns: ["listing-title","listing-authors","listing-year","listing-journal","listing-doi","listing-data_url","listing-code_url","listing-preprint_url","listing-bibtex"],
+      searchColumns: ["listing-title","listing-authors","listing-year","listing-journal","listing-doi","listing-data_url","listing-code_url","listing-preprint_url","listing-bibtex","listing-summary"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -332,7 +332,16 @@ window.Quarto = {
         
         <a class="tagpill" href="https://github.com/geonextgis/CropFusionNet">Code</a>
         
-        
+        <a class="tagpill tagpill-summary" data-bs-toggle="collapse" href="#sum0" role="button" aria-expanded="false" aria-controls="sum0">Plain-language summary</a>
+      </div>
+      
+      <div class="collapse pub-summary" id="sum0">
+        <div class="pub-summary-body">
+          <section class="pub-sum-section"><h4>Overview</h4><div class="pub-sum-content">&lt;p&gt;Droughts and heatwaves are becoming more frequent, and the systems used today to forecast harvests often miss how badly yields drop in those extreme years. We built CropFusionNet, a deep learning model that forecasts crop yields for every district in Germany and also shows &lt;em&gt;which&lt;/em&gt; weather and environmental factors are driving each forecast.&lt;/p&gt;</div></section>
+          <section class="pub-sum-section"><h4>Key findings</h4><div class="pub-sum-content">&lt;ul&gt;&lt;li&gt;It beat other deep learning models and the operational forecasting systems MARS and ABSOLUT.&lt;/li&gt;&lt;li&gt;Accuracy was high for silage maize (R² = 0.75, about 9% average error) and winter wheat (R² = 0.60, about 8% error), and moderate for winter barley (R² = 0.45).&lt;/li&gt;&lt;li&gt;It correctly showed the sharp yield losses in the drought years 2003, 2018 and 2022.&lt;/li&gt;&lt;li&gt;Reliable forecasts are possible 40–60 days before harvest for winter cereals and up to 70 days ahead for maize.&lt;/li&gt;&lt;/ul&gt;</div></section>
+          <section class="pub-sum-section"><h4>Methods</h4><div class="pub-sum-content">&lt;p&gt;The design builds on the Temporal Fusion Transformer, an AI model built for time series. It combines daily weather over the growing season with information that stays fixed, such as soil and location. It also reports how uncertain each forecast is, and explains its predictions by crediting them to the factors that drove them.&lt;/p&gt;</div></section>
+          <section class="pub-sum-section"><h4>Implications</h4><div class="pub-sum-content">&lt;p&gt;Earlier and more trustworthy harvest forecasts give farmers, markets and policymakers time to act before a bad season. They are especially useful in drought years, when they matter most. The code is open source.&lt;/p&gt;</div></section>
+        </div>
       </div>
       
     </div>
@@ -351,7 +360,16 @@ window.Quarto = {
         
         
         
-        
+        <a class="tagpill tagpill-summary" data-bs-toggle="collapse" href="#sum1" role="button" aria-expanded="false" aria-controls="sum1">Plain-language summary</a>
+      </div>
+      
+      <div class="collapse pub-summary" id="sum1">
+        <div class="pub-summary-body">
+          <section class="pub-sum-section"><h4>Overview</h4><div class="pub-sum-content">&lt;p&gt;Knowing how much a crop has grown, measured as its above-ground biomass, helps farmers and water managers decide when and how much to irrigate. Pure AI models are fast but act like black boxes. Traditional crop models are easier to interpret but need a lot of detailed input data. AgriPINN combines the two: it is a neural network that has to follow a known equation for how plants grow.&lt;/p&gt;</div></section>
+          <section class="pub-sum-section"><h4>Key findings</h4><div class="pub-sum-content">&lt;ul&gt;&lt;li&gt;Its prediction error was about 30% lower for winter wheat and 23% lower for maize than a strong CNN–Transformer AI baseline.&lt;/li&gt;&lt;li&gt;It also beat the best of the other models tested, by 9% for wheat and 2% for maize.&lt;/li&gt;&lt;li&gt;Along the way it estimates quantities that explain growth, such as leaf area, absorbed sunlight, how efficiently the crop uses that light, and how much water stress it is under, even though these were never used as training targets.&lt;/li&gt;&lt;/ul&gt;</div></section>
+          <section class="pub-sum-section"><h4>Methods</h4><div class="pub-sum-content">&lt;p&gt;A crop-growth equation from the LINTUL5 crop model is built into the network's training. The network first learns from 65 years of simulated crop data covering 397 German regions. It is then fine-tuned on three years of wheat and maize field trials grown under rain shelters, rainfed and irrigated conditions.&lt;/p&gt;</div></section>
+          <section class="pub-sum-section"><h4>Implications</h4><div class="pub-sum-content">&lt;p&gt;Building plant physiology into AI makes biomass predictions more accurate and easier to interpret under drought. So far the method has only been tested in Germany's temperate climate.&lt;/p&gt;</div></section>
+        </div>
       </div>
       
     </div>
@@ -370,7 +388,16 @@ window.Quarto = {
         
         
         
-        
+        <a class="tagpill tagpill-summary" data-bs-toggle="collapse" href="#sum2" role="button" aria-expanded="false" aria-controls="sum2">Plain-language summary</a>
+      </div>
+      
+      <div class="collapse pub-summary" id="sum2">
+        <div class="pub-summary-body">
+          <section class="pub-sum-section"><h4>Overview</h4><div class="pub-sum-content">&lt;p&gt;Mangrove forests along tropical coasts absorb large amounts of carbon, but measuring how much they take up over large areas is difficult. Earlier machine learning studies of mangrove productivity were small in scope and mostly limited to single regions. This study presents ML-MCP, a machine learning framework that models mangrove carbon uptake (gross primary productivity) and scales it up from individual sites to larger areas.&lt;/p&gt;</div></section>
+          <section class="pub-sum-section"><h4>Key findings</h4><div class="pub-sum-content">&lt;ul&gt;&lt;li&gt;ML-MCP predicted mangrove carbon uptake more accurately than traditional process-based models.&lt;/li&gt;&lt;li&gt;Sunlight available for photosynthesis was a critical driver, and its effect on productivity was complex and non-linear.&lt;/li&gt;&lt;/ul&gt;</div></section>
+          <section class="pub-sum-section"><h4>Methods</h4><div class="pub-sum-content">&lt;p&gt;The framework combines the strengths of process-based and satellite-based approaches. It uses eddy-covariance measurements of carbon exchange between the forest and the atmosphere, together with environmental and satellite data. The dataset is openly available on Zenodo.&lt;/p&gt;</div></section>
+          <section class="pub-sum-section"><h4>Implications</h4><div class="pub-sum-content">&lt;p&gt;Better estimates of how much carbon mangroves absorb support "blue carbon" accounting and make the case for protecting and restoring these coastal forests.&lt;/p&gt;</div></section>
+        </div>
       </div>
       
     </div>
@@ -395,7 +422,7 @@ window.Quarto = {
 </div>
 <div id="listing-Presentations" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-categories="T3JhbCUyMHByZXNlbnRhdGlvbiUyQ1BsYW5ldGFyeSUyMGJvdW5kYXJpZXMlMkNIeWJyaWQlMjBtb2RlbGxpbmc=" data-listing-date-sort="1777593600000" data-listing-file-modified-sort="1795349493504" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="11">
+<div class="g-col-1" data-index="0" data-categories="T3JhbCUyMHByZXNlbnRhdGlvbiUyQ1BsYW5ldGFyeSUyMGJvdW5kYXJpZXMlMkNIeWJyaWQlMjBtb2RlbGxpbmc=" data-listing-date-sort="1777593600000" data-listing-file-modified-sort="1795357249091" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="11">
 <a href="./presentations/2026_05_EGU_planetary_boundaries.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -434,7 +461,7 @@ Vienna, Austria
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="T3JhbCUyMHByZXNlbnRhdGlvbiUyQ1BoZW5vbG9neSUyQ1JlbW90ZSUyMHNlbnNpbmc=" data-listing-date-sort="1759276800000" data-listing-file-modified-sort="1795349493505" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="23">
+<div class="g-col-1" data-index="1" data-categories="T3JhbCUyMHByZXNlbnRhdGlvbiUyQ1BoZW5vbG9neSUyQ1JlbW90ZSUyMHNlbnNpbmc=" data-listing-date-sort="1759276800000" data-listing-file-modified-sort="1795357249092" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="23">
 <a href="./presentations/2025_10_Pantnagar_phenology.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -473,7 +500,7 @@ Pantnagar, India
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="UG9zdGVyJTJDQ3JvcCUyMHlpZWxkJTJDRGVlcCUyMGxlYXJuaW5n" data-listing-date-sort="1743552000000" data-listing-file-modified-sort="1795349493505" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="11">
+<div class="g-col-1" data-index="2" data-categories="UG9zdGVyJTJDQ3JvcCUyMHlpZWxkJTJDRGVlcCUyMGxlYXJuaW5n" data-listing-date-sort="1743552000000" data-listing-file-modified-sort="1795357249092" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="11">
 <a href="./presentations/2025_04_EGU_diffusion_models.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -512,7 +539,7 @@ Vienna, Austria
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="UG9zdGVyJTJDTGFuZCUyMGNvdmVyJTJDRGVlcCUyMGxlYXJuaW5n" data-listing-date-sort="1743465600000" data-listing-file-modified-sort="1795349493505" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="11">
+<div class="g-col-1" data-index="3" data-categories="UG9zdGVyJTJDTGFuZCUyMGNvdmVyJTJDRGVlcCUyMGxlYXJuaW5n" data-listing-date-sort="1743465600000" data-listing-file-modified-sort="1795357249093" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="11">
 <a href="./presentations/2025_04_EGU_CORINE.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -562,7 +589,7 @@ Vienna, Austria
 </div>
 <div id="listing-Posts" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-categories="UGhEJTJDcmVzZWFyY2glMkNhZ3JvZWNvc3lzdGVtJTIwbW9kZWxsaW5n" data-listing-date-sort="1790812800000" data-listing-file-modified-sort="1795349395070" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="99">
+<div class="g-col-1" data-index="0" data-categories="UGhEJTJDcmVzZWFyY2glMkNhZ3JvZWNvc3lzdGVtJTIwbW9kZWxsaW5n" data-listing-date-sort="1790812800000" data-listing-file-modified-sort="1795357176987" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="99">
 <a href="./posts/2026-10-01-phd-university-of-bonn.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -592,7 +619,7 @@ Oct 2026
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="d29ya3Nob3AlMkNoeWJyaWQlMjBtb2RlbGxpbmclMkNjcm9wJTIweWllbGQ=" data-listing-date-sort="1756684800000" data-listing-file-modified-sort="1795349395070" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="25">
+<div class="g-col-1" data-index="1" data-categories="d29ya3Nob3AlMkNoeWJyaWQlMjBtb2RlbGxpbmclMkNjcm9wJTIweWllbGQ=" data-listing-date-sort="1756684800000" data-listing-file-modified-sort="1795357176987" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="25">
 <a href="./posts/2025-09-01-tropentag-hy4cast-workshop.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -622,7 +649,7 @@ Sep 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="Y29uZmVyZW5jZSUyQ0VHVSUyQ2RlZXAlMjBsZWFybmluZw==" data-listing-date-sort="1743465600000" data-listing-file-modified-sort="1795349395070" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="44">
+<div class="g-col-1" data-index="2" data-categories="Y29uZmVyZW5jZSUyQ0VHVSUyQ2RlZXAlMjBsZWFybmluZw==" data-listing-date-sort="1743465600000" data-listing-file-modified-sort="1795357176987" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="44">
 <a href="./posts/2025-04-01-egu-2025-posters.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -652,7 +679,7 @@ Apr 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="bmV3cyUyQ1pBTEYlMkNMTCUyMFNZU1RBSU4=" data-listing-date-sort="1735689600000" data-listing-file-modified-sort="1795349395069" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="96">
+<div class="g-col-1" data-index="3" data-categories="bmV3cyUyQ1pBTEYlMkNMTCUyMFNZU1RBSU4=" data-listing-date-sort="1735689600000" data-listing-file-modified-sort="1795357176986" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="96">
 <a href="./posts/2025-01-01-joining-zalf.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
