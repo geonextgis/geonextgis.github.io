@@ -10,4 +10,5 @@ listing:
   grid-columns: 4
   date-format: "MMM YYYY"
   fields: [image, title, description, categories, date]
+  feed: true   # generates posts.xml (navbar RSS icon)
 ---
