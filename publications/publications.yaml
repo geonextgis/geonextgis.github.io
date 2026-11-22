@@ -15,6 +15,15 @@
   code_url: https://github.com/geonextgis/CropFusionNet
   preprint_url: ''
   bibtex: ''
+  summary:
+    overview: |-
+      <p>Droughts and heatwaves are becoming more frequent, and the systems used today to forecast harvests often miss how badly yields drop in those extreme years. We built CropFusionNet, a deep learning model that forecasts crop yields for every district in Germany and also shows <em>which</em> weather and environmental factors are driving each forecast.</p>
+    findings: |-
+      <ul><li>It beat other deep learning models and the operational forecasting systems MARS and ABSOLUT.</li><li>Accuracy was high for silage maize (R² = 0.75, about 9% average error) and winter wheat (R² = 0.60, about 8% error), and moderate for winter barley (R² = 0.45).</li><li>It correctly showed the sharp yield losses in the drought years 2003, 2018 and 2022.</li><li>Reliable forecasts are possible 40–60 days before harvest for winter cereals and up to 70 days ahead for maize.</li></ul>
+    methods: |-
+      <p>The design builds on the Temporal Fusion Transformer, an AI model built for time series. It combines daily weather over the growing season with information that stays fixed, such as soil and location. It also reports how uncertain each forecast is, and explains its predictions by crediting them to the factors that drove them.</p>
+    implications: |-
+      <p>Earlier and more trustworthy harvest forecasts give farmers, markets and policymakers time to act before a bad season. They are especially useful in drought years, when they matter most. The code is open source.</p>
 - title: 'AgriPINN: A process-informed neural network for interpretable and scalable crop biomass prediction
     under water stress'
   authors: Shi, Y., Srivastava, A. K., Behrend, D., Gaiser, T., Thuy, N. H., Zhang, X., Sobeih, T., Ewert,
@@ -26,6 +35,15 @@
   code_url: ''
   preprint_url: ''
   bibtex: ''
+  summary:
+    overview: |-
+      <p>Knowing how much a crop has grown, measured as its above-ground biomass, helps farmers and water managers decide when and how much to irrigate. Pure AI models are fast but act like black boxes. Traditional crop models are easier to interpret but need a lot of detailed input data. AgriPINN combines the two: it is a neural network that has to follow a known equation for how plants grow.</p>
+    findings: |-
+      <ul><li>Its prediction error was about 30% lower for winter wheat and 23% lower for maize than a strong CNN–Transformer AI baseline.</li><li>It also beat the best of the other models tested, by 9% for wheat and 2% for maize.</li><li>Along the way it estimates quantities that explain growth, such as leaf area, absorbed sunlight, how efficiently the crop uses that light, and how much water stress it is under, even though these were never used as training targets.</li></ul>
+    methods: |-
+      <p>A crop-growth equation from the LINTUL5 crop model is built into the network's training. The network first learns from 65 years of simulated crop data covering 397 German regions. It is then fine-tuned on three years of wheat and maize field trials grown under rain shelters, rainfed and irrigated conditions.</p>
+    implications: |-
+      <p>Building plant physiology into AI makes biomass predictions more accurate and easier to interpret under drought. So far the method has only been tested in Germany's temperate climate.</p>
 - title: A machine learning framework for modeling and upscaling mangrove carbon productivity (ML-MCP)
   authors: Alsafadi, K., Srivastava, A. K., Halder, K., et al.
   year: '2025'
@@ -35,6 +53,15 @@
   code_url: ''
   preprint_url: ''
   bibtex: ''
+  summary:
+    overview: |-
+      <p>Mangrove forests along tropical coasts absorb large amounts of carbon, but measuring how much they take up over large areas is difficult. Earlier machine learning studies of mangrove productivity were small in scope and mostly limited to single regions. This study presents ML-MCP, a machine learning framework that models mangrove carbon uptake (gross primary productivity) and scales it up from individual sites to larger areas.</p>
+    findings: |-
+      <ul><li>ML-MCP predicted mangrove carbon uptake more accurately than traditional process-based models.</li><li>Sunlight available for photosynthesis was a critical driver, and its effect on productivity was complex and non-linear.</li></ul>
+    methods: |-
+      <p>The framework combines the strengths of process-based and satellite-based approaches. It uses eddy-covariance measurements of carbon exchange between the forest and the atmosphere, together with environmental and satellite data. The dataset is openly available on Zenodo.</p>
+    implications: |-
+      <p>Better estimates of how much carbon mangroves absorb support "blue carbon" accounting and make the case for protecting and restoring these coastal forests.</p>
 - title: 'Enhancing landslide susceptibility mapping in the Himalayas: geospatial and machine learning
     with explainable AI'
   authors: Utthasini, M., Ilampooranan, I., Singh, S. K., Kanga, S., Kumar, P., Halder, K., et al.
@@ -45,6 +72,15 @@
   code_url: ''
   preprint_url: ''
   bibtex: ''
+  summary:
+    overview: |-
+      <p>Landslides are a frequent and deadly hazard in Uttarakhand, a mountainous state in the Indian Himalayas. This study maps where landslides are most likely to occur and explains <em>why</em> those places are at risk.</p>
+    findings: |-
+      <ul><li>Adding a wide range of geospatial datasets clearly improved the models' ability to identify landslide-prone areas.</li><li>Explainable AI showed which terrain and environmental factors contribute most to slope failure.</li></ul>
+    methods: |-
+      <p>Ensemble machine learning models were trained on 35 geo-environmental variables. SHAP, an explainable-AI technique, was used to show how much each factor contributes to the predictions.</p>
+    implications: |-
+      <p>Maps that are both accurate and explainable help planners and disaster managers trust the results and target hazard reduction in the Himalayas.</p>
 - title: A robust and scalable crop mapping framework using advanced machine learning and optical and
     SAR imageries
   authors: Halder, K., Srivastava, A. K., et al.
@@ -55,6 +91,15 @@
   code_url: ''
   preprint_url: ''
   bibtex: ''
+  summary:
+    overview: |-
+      <p>Planning for food security and sustainable farming needs accurate maps of which crop grows where, every year. We built a reproducible method that makes these maps from satellite images and AI.</p>
+    findings: |-
+      <ul><li>The best model, a BiLSTM (a type of deep learning model for sequences), reached about 93% overall accuracy.</li><li>Combining radar and optical satellite data improved accuracy by 2–3% over using either one alone.</li><li>The model learned to recognise crops from key stages of their growth cycle.</li><li>It worked well in new regions with little training data, and it outperformed existing benchmark maps.</li></ul>
+    methods: |-
+      <p>We built 10-day composite images from Sentinel-1 radar and Sentinel-2 optical satellites. We used them to classify five crops (winter wheat, rapeseed, winter barley, silage maize and sugar beet) in Lower Saxony, North Rhine-Westphalia and Brandenburg for 2021 and 2023. We compared machine learning models (XGBoost, CatBoost) with deep learning models (BiLSTM, self-attention).</p>
+    implications: |-
+      <p>Because the method runs on Google Earth Engine, it can be scaled up to field-level crop monitoring across Europe. This supports farm decisions and long-term environmental monitoring.</p>
 - title: 'Propagation patterns of different degree meteorological droughts across the Yangtze River Basin:
     a three-dimensional drought feature identification approach with Copula modeling'
   authors: Xing, L., Zhao, R., Sun, H., Tan, Z., Fang, Q., Li, M., Halder, K., et al.
@@ -65,6 +110,13 @@
   code_url: ''
   preprint_url: ''
   bibtex: ''
+  summary:
+    overview: |-
+      <p>Droughts are not just a point on a map: they start somewhere, grow, move across a region and fade over time. This study tracks how meteorological droughts (periods of unusually low rainfall) of different severities travel across the Yangtze River Basin, one of China's most important river systems for food and water.</p>
+    methods: |-
+      <p>Drought events are identified in three dimensions (space plus time), so each event's area, duration and severity can be followed as it develops. Copula models, a statistical tool for linking several related variables, are used to describe how these characteristics occur together and how likely droughts of different severities are.</p>
+    implications: |-
+      <p>Knowing how droughts of different severities typically spread helps water managers anticipate where a developing drought is heading and plan responses earlier.</p>
 - title: High-Resolution Maize Yield Mapping across Africa using Earth Observation and Machine Learning,
     Deep Learning, and Foundation Model
   authors: Halder, K., Ewert, F., et al.
@@ -75,6 +127,15 @@
   code_url: ''
   preprint_url: ''
   bibtex: ''
+  summary:
+    overview: |-
+      <p>Africa's food security is under pressure from climate change and population growth. Yet in much of the continent, farm yields are rarely measured. We produced maize yield maps at 250-metre resolution for 42 African countries.</p>
+    findings: |-
+      <ul><li>XGBoost was best at tracking changes from year to year (R² = 0.78).</li><li>TabPFN, a pre-trained "foundation" AI model for tables of data, worked best in regions it had not seen and had the lowest error (about 25%).</li><li>Vegetation greenness, drought indicators and soil properties were the most important predictors.</li><li>The maps matched official national yields closely (R² &gt; 0.75).</li></ul>
+    methods: |-
+      <p>National FAO yield statistics were spread down to fine-scale pixels using satellite estimates of plant growth (net primary production). This created training data where no field measurements exist. We used 296 variables from Earth observation, climate and soil data, and tested XGBoost, LightGBM, a hybrid deep neural network and TabPFN. Each model was trained on past years and tested on later ones.</p>
+    implications: |-
+      <p>This is the first use of a tabular foundation model for crop prediction across a whole continent. It offers a scalable way to monitor yields where ground data are scarce.</p>
 - title: Improving landslide susceptibility prediction through ensemble Recursive Feature Elimination
     and meta-learning framework
   authors: Halder, K., Srivastava, A. K., et al.
@@ -85,6 +146,15 @@
   code_url: ''
   preprint_url: ''
   bibtex: ''
+  summary:
+    overview: |-
+      <p>Landslides threaten lives, homes and ecosystems in the fragile Sub-Himalayan region of West Bengal, India. We mapped where landslides are most likely to happen.</p>
+    findings: |-
+      <ul><li>A meta-classifier, which combines several models, performed best (95.6% accuracy, AUC 0.987).</li><li>Gradient Boosting, XGBoost and Random Forest also did very well, and needed fewer input variables.</li><li>The highest-risk zones are concentrated in Darjeeling and Kalimpong. Heavy rainfall, unstable geology, deforestation and urban growth drive the risk there.</li></ul>
+    methods: |-
+      <p>We used remote sensing and GIS to gather factors that make slopes unstable. Recursive Feature Elimination kept the most useful ones. We then trained seven machine learning models and stacked them together, and sorted the region into five susceptibility zones, from very low to very high.</p>
+    implications: |-
+      <p>The maps can guide land-use planning, disaster preparedness and conservation. The method can be adapted to other landslide-prone regions.</p>
 - title: 'Highlighting the role of traditional paddy for sustainable agriculture and livelihood: issues,
     policy intervention and the pathways'
   authors: Patra, S., Saha, A., Pal, S. C., Islam, A. R. M. T., Halder, K., et al.
@@ -95,6 +165,15 @@
   code_url: ''
   preprint_url: ''
   bibtex: ''
+  summary:
+    overview: |-
+      <p>Before modern high-yielding rice varieties took over, farmers grew many local, traditional rice varieties. This review argues that these varieties deserve renewed attention for sustainable farming and farmers' livelihoods.</p>
+    findings: |-
+      <ul><li>Traditional varieties are often highly nutritious and have medicinal uses, for example in managing blood pressure and blood sugar.</li><li>They are suited to local soils, can be grown with organic manure and without pesticides, and cope well with stresses such as erratic rainfall and drought.</li><li>They can fetch higher market prices and need less labour.</li></ul>
+    methods: |-
+      <p>A review of existing research on traditional rice varieties, covering their properties, the challenges facing them, and policy options.</p>
+    implications: |-
+      <p>Policies to protect and promote farmers' own varieties are needed to keep this genetic heritage and support sustainable agriculture. The review is aimed at farmers, seed producers and researchers.</p>
 - title: 'Dynamic Modelling of Mixed Crop-Livestock Systems: A Case Study of Climate Change Impacts in
     sub-Saharan Africa'
   authors: Srivastava, A. K., Rahimi, J., Alsafadi, K., Vianna, M., Enders, A., Zheng, W., Demircan, A.,
@@ -106,6 +185,15 @@
   code_url: ''
   preprint_url: ''
   bibtex: ''
+  summary:
+    overview: |-
+      <p>Many smallholder farmers in sub-Saharan Africa grow crops and raise livestock together, and climate change threatens both. We extended the SIMPLACE modelling framework to simulate crops, grasslands and livestock together across 786,500 km² of West Africa.</p>
+    findings: |-
+      <ul><li>The model reproduced past conditions (1981–2005) well.</li><li>By 2020–2050, the drier north could see crop and grass biomass fall by up to 56–57% and livestock numbers by up to 43%.</li><li>In the Sahel this would mean about 41% less milk and 47% less meat, as well as lower methane emissions.</li><li>Some parts of the wetter Sudanian zone could instead see livestock numbers and methane rise by about 24%.</li></ul>
+    methods: |-
+      <p>We linked models of crops (maize, millet, sorghum), natural vegetation and livestock within SIMPLACE. We then ran them with regional climate projections, downscaled from global climate models, to estimate future yields, herd sizes and greenhouse gas emissions.</p>
+    implications: |-
+      <p>Climate impacts on these farming systems vary widely from place to place, so adaptation plans need to be tailored to each region rather than one-size-fits-all.</p>
 - title: SAR-driven flood inventory and multi-factor ensemble susceptibility modelling using Machine Learning
     Frameworks
   authors: Halder, K., Ghosh, A., et al.
@@ -116,6 +204,15 @@
   code_url: ''
   preprint_url: ''
   bibtex: ''
+  summary:
+    overview: |-
+      <p>Floods are becoming more frequent and severe in the Indian subcontinent. We mapped which areas are most likely to flood so that planners can prepare.</p>
+    findings: |-
+      <ul><li>A stacking ensemble, which combines several models, gave the best predictions (0.965).</li><li>It was followed by XGBoost (0.934), a deep neural network (0.929), Random Forest (0.925), Logistic Regression (0.921) and SVM (0.920).</li></ul>
+    methods: |-
+      <p>Past flood extents were mapped from Sentinel-1 radar images in Google Earth Engine, because radar can see through clouds. These records were used to train six machine learning models on 18 factors that influence flooding.</p>
+    implications: |-
+      <p>The flood susceptibility maps give city planners and disaster managers practical guidance on where to strengthen infrastructure and community resilience.</p>
 - title: Application of bagging and boosting ensemble machine learning techniques for groundwater potential
     mapping in a drought-prone agriculture region of eastern India
   authors: Halder, K., Srivastava, A. K., et al.
@@ -126,3 +223,12 @@
   code_url: ''
   preprint_url: ''
   bibtex: ''
+  summary:
+    overview: |-
+      <p>Groundwater supplies drinking water and irrigation for billions of people, but over-pumping is depleting it. We mapped where groundwater is most likely to be found in Bankura, a drought-prone farming district in West Bengal, India.</p>
+    findings: |-
+      <ul><li>XGBoost and a voting ensemble, which combines models, performed best (about 96% accuracy). Random Forest and AdaBoost were close behind (about 94%).</li><li>About 42% of the district has very low groundwater potential, and about 24% has very high potential.</li><li>The prediction uncertainty map shows where field checks are most needed.</li></ul>
+    methods: |-
+      <p>We trained four machine learning methods (Random Forest, AdaBoost, XGBoost and a voting ensemble) on locations where groundwater was known to be present or absent. They learned which environmental factors go with groundwater availability.</p>
+    implications: |-
+      <p>The maps can help target well drilling, water conservation and recharge efforts. The approach can be used in other regions with similar geology.</p>
