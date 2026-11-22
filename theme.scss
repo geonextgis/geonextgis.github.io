@@ -139,6 +139,24 @@ h1,h2,h3,h4,h5 { font-family: var(--bb-font-sans); letter-spacing: -.02em; }
   border-bottom-color: var(--bb-line);
   padding-top: 10px; padding-bottom: 10px;
 }
+/* Mobile: when the collapsed menu is expanded (or animating), the whole bar
+   gets a fully opaque background so links never overlap the hero.
+   `.navbar-open` is set by nav-scroll.html; `:has()` covers it without JS.
+   Breakpoint matches Quarto's default collapse-below: lg. */
+@media (max-width: 991.98px) {
+  .navbar.navbar-open,
+  .navbar:has(.navbar-collapse.show),
+  .navbar:has(.navbar-collapse.collapsing) {
+    background: var(--bb-cream) !important;
+    -webkit-backdrop-filter: none; backdrop-filter: none;
+    border-bottom-color: var(--bb-line);
+    box-shadow: 0 8px 24px rgba(43,38,32,.08);
+  }
+  .navbar .navbar-collapse.show,
+  .navbar .navbar-collapse.collapsing {
+    background: var(--bb-cream);
+  }
+}
 /* brand wordmark */
 .navbar-brand, .navbar-title {
   font-family: var(--bb-font-sans) !important;

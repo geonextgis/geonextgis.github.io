@@ -12,6 +12,13 @@
         navbar.classList.toggle('navbar-solid', solid);
       }
       update();
+      // Mobile menu: keep the bar opaque while the collapse is opening/open.
+      navbar.addEventListener('show.bs.collapse', function () {
+        navbar.classList.add('navbar-open');
+      });
+      navbar.addEventListener('hidden.bs.collapse', function () {
+        navbar.classList.remove('navbar-open');
+      });
       window.addEventListener('scroll', update, { passive: true });
       window.addEventListener('resize', update, { passive: true });
     }
