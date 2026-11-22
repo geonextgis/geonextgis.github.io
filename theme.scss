@@ -7,8 +7,8 @@
 /*-- scss:defaults --*/
 
 // ---- Palette (mirrors _brand.yml so rules below can use Sass vars) ----
-$cream:       #F4EEE2;
-$cream-2:     #EFE7D7;
+$cream:       #FFFFFF;
+$cream-2:     #F7F5F0;
 $surface:     #FBF7EE;
 $ink:         #2B2620;
 $ink-soft:    #6B6253;
@@ -67,8 +67,8 @@ $navbar-light-active-color: $forest;
    Design tokens (CSS custom properties — easy to retune)
    ---------------------------------------------------------- */
 :root {
-  --bb-cream:       #F4EEE2;
-  --bb-cream-2:     #EFE7D7;
+  --bb-cream:       #FFFFFF;
+  --bb-cream-2:     #F7F5F0;
   --bb-surface:     #FBF7EE;
   --bb-ink:         #2B2620;
   --bb-ink-soft:    #6B6253;
