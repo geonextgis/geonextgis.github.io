@@ -62,10 +62,6 @@ listing:
       <div class="bb-portrait-ring"></div>
       <div class="bb-portrait"><img src="assets/landing_portrait_cropped.jpg" alt="Krishnagopal Halder"/></div>
     </div>
-    <svg class="bb-squiggle" viewBox="0 0 240 130" width="240" height="130" fill="none" aria-hidden="true">
-      <path d="M6 96 C 40 120, 70 60, 110 70 S 180 110, 224 40" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="2 11"/>
-      <path d="M224 40 l -14 2 m 14 -2 l -4 -13" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-    </svg>
   </div>
 </section>
 ```
