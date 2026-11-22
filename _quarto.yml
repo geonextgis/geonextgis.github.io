@@ -6,10 +6,13 @@ project:
     - create_presentation_qmds.R
 
 website:
-  title: "Krishnagopal <span class='brand-2'>Halder.</span>"
+  title: "Krishnagopal Halder"
   site-url: "https://geonextgis.github.io/"
   description: "Personal website for Krishnagopal Halder"
+  open-graph: true
+  twitter-card: true
   navbar:
+      title: "Krishnagopal <span class='brand-2'>Halder.</span>"
       right:
       - text: "Home"
         href: index.qmd
