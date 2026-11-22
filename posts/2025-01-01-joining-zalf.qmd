@@ -1,0 +1,16 @@
+---
+title: Joining ZALF as a Research Scientist
+description: "I joined the Leibniz Centre for Agricultural Landscape Research to work on multi-scale crop yield forecasting within LL SYSTAIN."
+date: "2025-01-01"
+image: ../assets/post_2025_01_zalf.svg
+image-alt: Abstract cover of a patchwork of agricultural fields
+categories: [news, ZALF, LL SYSTAIN]
+---
+
+In January 2025 I joined the [Leibniz Centre for Agricultural Landscape Research (ZALF)](https://www.zalf.de/en/Pages/ZALF.aspx) in Müncheberg, Germany, as a Research Scientist. I work in the Research Platform *Simulation and Data Science*, in the Working Group *Multi-Scale Modelling and Forecasting (MSM)*, and contribute to the [Leibniz-Lab Systemic Sustainability (LL SYSTAIN)](https://www.ll-systain.org/) project.
+
+My work there covers:
+
+- machine learning workflows for **multi-scale crop yield forecasting** and scenario analysis, integrating climate, soil and biodiversity indicators;
+- processing and harmonising large Earth observation and agricultural datasets (Sentinel, MODIS, soil grids);
+- co-designing sustainability indicators that link agricultural productivity and ecological resilience, together with interdisciplinary teams.

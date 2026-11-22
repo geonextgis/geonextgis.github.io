@@ -1,0 +1,31 @@
+# education.yaml — "Education" on about.html (newest first).
+# Fields: title (degree), organisation, location, year, period, note,
+# highlights (list, optional), url (optional).
+- title: Doctor of Agricultural Sciences (Dr. agr.)
+  organisation: University of Bonn
+  location: Bonn, Germany
+  year: "2026"
+  period: Oct 2026 – Present
+  url: https://www.uni-bonn.de/
+  note: Research conducted at the Leibniz Centre for Agricultural Landscape Research (ZALF), Germany. Supervised by Prof. Dr. Frank Ewert.
+  highlights:
+    - "<strong>Research focus:</strong> landscape-scale agroecosystem modelling, spatial and temporal landscape dynamics, crop productivity and resilience."
+    - "<strong>Research question:</strong> how can spatial and temporal landscape information be represented and integrated into agroecosystem models to improve the understanding and prediction of crop productivity and resilience across scales?"
+- title: M.Tech. in Disaster Mitigation and Management
+  organisation: Indian Institute of Technology Roorkee
+  location: Roorkee, Uttarakhand, India
+  year: "2024"
+  period: Jul 2024 – Dec 2024
+  note: Discontinued.
+- title: M.Sc. in Remote Sensing and GIS
+  organisation: Vidyasagar University
+  location: Midnapore, West Bengal, India
+  year: "2022"
+  period: Nov 2022 – Jul 2024
+  note: "CGPA: 9.04/10.00"
+- title: B.Sc. in Geography
+  organisation: Bankura Christian College
+  location: Bankura, West Bengal, India
+  year: "2019"
+  period: Jun 2019 – Aug 2022
+  note: "CGPA: 9.33/10.00"

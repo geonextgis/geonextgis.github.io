@@ -1,0 +1,65 @@
+---
+pagetitle: "About - Krishnagopal Halder"
+page-layout: full
+title-block-banner: false
+format: 
+  html: 
+    anchor-sections: true
+listing:
+  - id: Experience
+    template: ejs/timeline.ejs
+    contents:
+    - about/experience.yaml
+    sort: false
+  - id: Education
+    template: ejs/timeline.ejs
+    contents:
+    - about/education.yaml
+    sort: false
+  - id: Skills
+    template: ejs/skills.ejs
+    contents:
+    - about/skills.yaml
+    sort: false
+  - id: Honours
+    template: ejs/timeline.ejs
+    contents:
+    - about/honours.yaml
+    sort: false
+  - id: Workshops
+    template: ejs/timeline.ejs
+    contents:
+    - about/workshops.yaml
+    sort: false
+---
+
+```{=html}
+<div class="section-head">
+  <h2 id="about">About</h2>
+  <a class="section-more" href="https://geonextgis.github.io/curriculum-vitae/">Full CV</a>
+</div>
+```
+
+::: {.bb-intro style="max-width: 70ch; margin-top: 0; margin-bottom: 3rem;"}
+I am a PhD researcher in landscape-scale agroecosystem modelling, specialising in geospatial data science, machine learning and agricultural systems modelling. I develop machine learning, deep learning and hybrid process-based modelling workflows for crop modelling, yield forecasting, crop mapping and climate change impact assessment, using large-scale Earth observation, climate and soil datasets. I am interested in open science, scientific software development, and advancing agricultural science and technology to address real-world challenges, particularly in underserved regions and vulnerable agricultural systems.
+:::
+
+## Research experience
+::: {#Experience}
+:::
+
+## Education
+::: {#Education}
+:::
+
+## Skills
+::: {#Skills}
+:::
+
+## Honours & achievements
+::: {#Honours}
+:::
+
+## Workshops & training
+::: {#Workshops}
+:::

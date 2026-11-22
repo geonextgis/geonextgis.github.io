@@ -1,0 +1,39 @@
+```{=html}
+<%
+  // timeline.ejs — experience / education / honours rows on about.html.
+  // Reuses the publication row design (.pub-list / .pub) so the page matches.
+  // Items keep the order of their YAML file (newest first).
+%>
+<div class="pub-list">
+<% for (let item of items) { %>
+  <article class="pub">
+    <div class="yr"><%= item.year || '' %></div>
+    <div class="meta">
+      <div class="pt"><%- item.title %></div>
+      <div class="pj">
+        <% if (item.organisation) { %><span class="author-name"><%- item.organisation %></span><% } %><% if (item.location) { %> · <%- item.location %><% } %><% if (item.period) { %> · <%- item.period %><% } %>
+      </div>
+      <% if (item.note || item.highlights) { %>
+      <div class="pub-sum-content pub-desc">
+        <% if (item.note) { %><p><%- item.note %></p><% } %>
+        <% if (item.highlights) { %><ul><% for (let h of item.highlights) { %><li><%- h %></li><% } %></ul><% } %>
+      </div>
+      <% } %>
+      <% if (item.url) { %>
+      <div class="links"><a class="tagpill" href="<%- item.url %>">Website</a></div>
+      <% } %>
+    </div>
+  </article>
+<% } %>
+</div>
+```
+
+<script>
+  // decode HTML entities in highlight text (Quarto escapes raw HTML in YAML fields)
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.pub-desc, .pub .pt, .pub .pj').forEach(function (d) {
+      if (d.dataset.decoded) return;
+      const t = document.createElement('textarea'); t.innerHTML = d.innerHTML; d.innerHTML = t.value; d.dataset.decoded = '1';
+    });
+  });
+</script>

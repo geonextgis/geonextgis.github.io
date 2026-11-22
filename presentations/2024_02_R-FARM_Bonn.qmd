@@ -1,0 +1,21 @@
+---
+title: 'Indo-German Workshop on Resilient Food Systems: AI, Remote Sensing, and Crop
+  Models in Harmony (R-FARM)'
+description: Oral presentation · University of Bonn, Germany.
+author: Krishnagopal Halder
+event: R-FARM Indo-German Workshop · Oral presentation
+location: University of Bonn, Germany
+date: '2024-02-01'
+image: /assets/pres_2024_02_rfarm.svg
+image-alt: Abstract cover for the R-FARM workshop presentation
+citation: false
+categories:
+  - Oral presentation
+  - Workshop
+  - Food systems
+
+---
+
+Oral presentation at the Indo-German Workshop on Resilient Food Systems (R-FARM),
+University of Bonn, Germany.
+

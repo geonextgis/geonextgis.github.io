@@ -1,0 +1,9 @@
+# skills.yaml — "Skills" on about.html. One entry per group; `items` are chips.
+- title: Programming
+  items: [Python, R, SQL, JavaScript]
+- title: Frameworks & platforms
+  items: [PyTorch, TensorFlow, Scikit-learn, Google Earth Engine, Git, GitHub]
+- title: Methods
+  items: [Machine Learning, Deep Learning, Geospatial Analysis, Image Processing, Statistical Analysis]
+- title: Software
+  items: [ArcGIS Pro, QGIS, Photoshop, Adobe Illustrator]

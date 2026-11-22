@@ -1,0 +1,11 @@
+---
+title: Moderating the Hy4Cast workshop at Tropentag 2025
+description: "Hybrid modelling that uses artificial intelligence for fine-scale crop yield forecasts, at Tropentag 2025 in Bonn."
+date: "2025-09-01"
+image: ../assets/post_2025_09_tropentag.svg
+image-alt: Abstract cover of scattered leaves
+categories: [workshop, hybrid modelling, crop yield]
+---
+
+At [Tropentag 2025](https://www.tropentag.de/), hosted by the University of Bonn, I moderated the workshop **"Hy4Cast – Hybrid modelling leveraging Artificial Intelligence for fine-scale crop yield forecasts"**.
+

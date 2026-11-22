@@ -1,0 +1,39 @@
+# other_outputs.yaml — "Beyond the papers" grid (home page + publications.html)
+# One entry per card: title, path (link), image, description, categories.
+# Order here = order on the page (first four appear on the home page).
+
+- title: TorchCrop
+  path: https://geonextgis.github.io/torchcrop/
+  image: assets/out_torchcrop.svg
+  description: "A PyTorch-native library for hybrid crop modelling, with documentation and source on GitHub."
+  categories: [Software, Open source]
+- title: CropFusionNet
+  path: https://github.com/geonextgis/CropFusionNet
+  image: assets/out_cropfusionnet.svg
+  description: "An interpretable deep learning framework for probabilistic crop yield forecasting."
+  categories: [Software, Open source]
+- title: "SUSTAINCrop"
+  path: https://cordis.europa.eu/project/id/101288599
+  image: assets/out_sustaincrop.svg
+  description: "Knowledge exchange for assessing environmental impacts of crop production in bio-based industrial systems. A Horizon Europe Coordination and Support Action with ZALF as a consortium partner (2026 – present)."
+  categories: [Research project]
+- title: "AgMIP"
+  path: https://agmip.org/
+  image: assets/out_agmip.svg
+  description: "Agricultural Model Intercomparison and Improvement Project, contributing from the Leibniz Centre for Agricultural Landscape Research (ZALF) (2026 – present)."
+  categories: [Research project]
+- title: "LL SYSTAIN"
+  path: https://www.ll-systain.org/
+  image: assets/out_llsystain.svg
+  description: "Leibniz-Lab Systemic Sustainability: biodiversity, climate, agriculture and food within planetary boundaries. Funded by the Leibniz Association (2025 – present)."
+  categories: [Research project]
+- title: "SynPAI"
+  path: https://synpaim.wordpress.com/news/
+  image: assets/out_synpai.svg
+  description: "Synergising process-based and machine learning models for accurate and explainable crop yield prediction along with environmental impact assessment. Funded by BBSRC (2024 – 2026)."
+  categories: [Research project]
+- title: "AgML"
+  path: https://www.agml.org/
+  image: assets/out_agml.svg
+  description: "Machine learning for agricultural modelling (2024 – present)."
+  categories: [Research project]

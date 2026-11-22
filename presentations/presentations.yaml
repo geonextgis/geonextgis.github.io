@@ -1,0 +1,91 @@
+# presentations.yaml — source for every presentation page.
+# create_presentation_qmds.R (pre-render) turns each entry into presentations/<id>.qmd.
+# See presentations/README.md for all supported fields (PDF / iframe embeds,
+# extra images, citation, draft, ...). `date` must be YYYY-MM-DD.
+
+- id: 2026_05_EGU_planetary_boundaries
+  title: Assessing Agricultural Production within Planetary Boundaries using an Integrated Monitoring and Hybrid Modelling Approach
+  description: Oral presentation · EGU General Assembly 2026, Vienna, Austria.
+  author: Krishnagopal Halder
+  event: EGU General Assembly 2026 · Oral presentation
+  location: Vienna, Austria
+  date: "2026-05-01"
+  image: /assets/pres_2026_05_egu_planetary.svg
+  image-alt: Abstract cover for the EGU 2026 presentation
+  citation: false
+  categories: [Oral presentation, Planetary boundaries, Hybrid modelling]
+  content: |
+    Oral presentation at the EGU General Assembly 2026 in Vienna, Austria.
+
+- id: 2025_10_Pantnagar_phenology
+  title: "Mapping Land Surface Phenology for Sustainable Food Systems: A Multiscale, Open-Source Approach Using Multi Source Remote Sensing"
+  description: Oral presentation · Sustainable Agriculture for Food Security and Global Health, GBPUA&T, Pantnagar, India.
+  author: Krishnagopal Halder
+  event: Sustainable Agriculture for Food Security and Global Health, GBPUA&T · Oral presentation
+  location: Pantnagar, India
+  date: "2025-10-01"
+  image: /assets/pres_2025_10_pantnagar.svg
+  image-alt: Abstract cover for the Pantnagar presentation
+  citation: false
+  categories: [Oral presentation, Phenology, Remote sensing]
+  content: |
+    Oral presentation at the conference *Sustainable Agriculture for Food Security and Global Health*,
+    G. B. Pant University of Agriculture and Technology (GBPUA&T), Pantnagar, India.
+
+- id: 2025_04_EGU_diffusion_models
+  title: "Advancing Crop Yield Predictions: The Potential of Diffusion Models in Machine Learning for Agriculture"
+  description: Poster · EGU General Assembly 2025, Vienna, Austria.
+  author: Krishnagopal Halder
+  event: EGU General Assembly 2025 · Poster
+  location: Vienna, Austria
+  date: "2025-04-02"
+  image: /assets/pres_2025_04_egu_diffusion.svg
+  image-alt: Abstract cover for the EGU 2025 diffusion models poster
+  citation: false
+  categories: [Poster, Crop yield, Deep learning]
+  content: |
+    Poster presented at the EGU General Assembly 2025 in Vienna, Austria.
+
+- id: 2025_04_EGU_CORINE
+  title: Transforming Low-Resolution CORINE Data into High-Resolution Landscape Maps with Semi-Supervised Deep Learning
+  description: Poster · EGU General Assembly 2025, Vienna, Austria.
+  author: Krishnagopal Halder
+  event: EGU General Assembly 2025 · Poster
+  location: Vienna, Austria
+  date: "2025-04-01"
+  image: /assets/pres_2025_04_egu_corine.svg
+  image-alt: Abstract cover for the EGU 2025 CORINE poster
+  citation: false
+  categories: [Poster, Land cover, Deep learning]
+  content: |
+    Poster presented at the EGU General Assembly 2025 in Vienna, Austria.
+
+- id: 2024_02_R-FARM_Bonn
+  title: "Indo-German Workshop on Resilient Food Systems: AI, Remote Sensing, and Crop Models in Harmony (R-FARM)"
+  description: Oral presentation · University of Bonn, Germany.
+  author: Krishnagopal Halder
+  event: R-FARM Indo-German Workshop · Oral presentation
+  location: University of Bonn, Germany
+  date: "2024-02-01"
+  image: /assets/pres_2024_02_rfarm.svg
+  image-alt: Abstract cover for the R-FARM workshop presentation
+  citation: false
+  categories: [Oral presentation, Workshop, Food systems]
+  content: |
+    Oral presentation at the Indo-German Workshop on Resilient Food Systems (R-FARM),
+    University of Bonn, Germany.
+
+- id: 2023_09_Rampurhat_seminar
+  title: International Seminar on Recent Advancement in Geographical Studies – A Multidimensional Outlook
+  description: Oral presentation · Department of Geography, Rampurhat College, Birbhum, India.
+  author: Krishnagopal Halder
+  event: Department of Geography, Rampurhat College · Oral presentation
+  location: Birbhum, West Bengal, India
+  date: "2023-09-01"
+  image: /assets/pres_2023_09_rampurhat.svg
+  image-alt: Abstract cover for the Rampurhat seminar presentation
+  citation: false
+  categories: [Oral presentation, Seminar, Geography]
+  content: |
+    Oral presentation at the International Seminar on Recent Advancement in Geographical Studies,
+    Department of Geography, Rampurhat College, Birbhum, West Bengal, India.

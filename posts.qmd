@@ -1,0 +1,13 @@
+---
+title: |
+pagetitle: "Posts - Krishnagopal Halder"
+subtitle: "A place for me to share updates on my research in agroecosystem modelling, geospatial machine learning and Earth observation — plus the occasional tip from building open-source scientific software."   
+
+listing: 
+  contents: posts/*.qmd
+  sort: "date desc"
+  type: grid
+  grid-columns: 4
+  date-format: "MMM YYYY"
+  fields: [image, title, description, categories, date]
+---

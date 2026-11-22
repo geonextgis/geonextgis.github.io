@@ -1,0 +1,23 @@
+---
+title: 'Mapping Land Surface Phenology for Sustainable Food Systems: A Multiscale,
+  Open-Source Approach Using Multi Source Remote Sensing'
+description: Oral presentation · Sustainable Agriculture for Food Security and Global
+  Health, GBPUA&T, Pantnagar, India.
+author: Krishnagopal Halder
+event: Sustainable Agriculture for Food Security and Global Health, GBPUA&T · Oral
+  presentation
+location: Pantnagar, India
+date: '2025-10-01'
+image: /assets/pres_2025_10_pantnagar.svg
+image-alt: Abstract cover for the Pantnagar presentation
+citation: false
+categories:
+  - Oral presentation
+  - Phenology
+  - Remote sensing
+
+---
+
+Oral presentation at the conference *Sustainable Agriculture for Food Security and Global Health*,
+G. B. Pant University of Agriculture and Technology (GBPUA&T), Pantnagar, India.
+

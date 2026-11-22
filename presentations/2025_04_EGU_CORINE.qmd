@@ -1,0 +1,20 @@
+---
+title: Transforming Low-Resolution CORINE Data into High-Resolution Landscape Maps
+  with Semi-Supervised Deep Learning
+description: Poster · EGU General Assembly 2025, Vienna, Austria.
+author: Krishnagopal Halder
+event: EGU General Assembly 2025 · Poster
+location: Vienna, Austria
+date: '2025-04-01'
+image: /assets/pres_2025_04_egu_corine.svg
+image-alt: Abstract cover for the EGU 2025 CORINE poster
+citation: false
+categories:
+  - Poster
+  - Land cover
+  - Deep learning
+
+---
+
+Poster presented at the EGU General Assembly 2025 in Vienna, Austria.
+

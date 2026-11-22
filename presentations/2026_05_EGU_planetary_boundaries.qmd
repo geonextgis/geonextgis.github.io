@@ -1,0 +1,20 @@
+---
+title: Assessing Agricultural Production within Planetary Boundaries using an Integrated
+  Monitoring and Hybrid Modelling Approach
+description: Oral presentation · EGU General Assembly 2026, Vienna, Austria.
+author: Krishnagopal Halder
+event: EGU General Assembly 2026 · Oral presentation
+location: Vienna, Austria
+date: '2026-05-01'
+image: /assets/pres_2026_05_egu_planetary.svg
+image-alt: Abstract cover for the EGU 2026 presentation
+citation: false
+categories:
+  - Oral presentation
+  - Planetary boundaries
+  - Hybrid modelling
+
+---
+
+Oral presentation at the EGU General Assembly 2026 in Vienna, Austria.
+

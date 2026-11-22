@@ -1,0 +1,55 @@
+project:
+  type: website
+  output-dir: docs
+  pre-render:
+    - fetch-assets.R
+    - create_presentation_qmds.R
+
+website:
+  title: "Krishnagopal <span class='brand-2'>Halder.</span>"
+  site-url: "https://geonextgis.github.io/"
+  description: "Personal website for Krishnagopal Halder"
+  navbar:
+      right:
+      - text: "Home"
+        href: index.qmd
+        aria-label: "Home"
+      - text: "About"
+        href: about.qmd
+        aria-label: "About"
+      - text: "Publications"
+        href: index.qmd#publications
+        aria-label: "Publications"
+      - text: "Presentations"
+        href: index.qmd#presentations
+        aria-label: "Presentations"
+      - text: "Posts"
+        href: index.qmd#posts
+        aria-label: "Posts"
+      - text: "{{< fa solid envelope >}}"
+        href: mailto:Krishnagopal.Halder@zalf.de
+        aria-label: "Email"
+      - text: "{{< fa brands github >}}"
+        href: https://github.com/geonextgis
+        aria-label: "Github"
+      - icon: rss
+        href: posts.xml
+      - text: "<span class='cv-btn'>Download CV</span>"
+        href: "https://geonextgis.github.io/curriculum-vitae/"
+        aria-label: "Download CV"
+
+format:
+  html:
+    theme:
+      - brand            # pulls in _brand.yml
+      - theme.scss       # our component styles
+    include-in-header:
+      - header.html      # webfonts
+    include-after-body:
+      - nav-scroll.html  # navbar scroll behaviour
+      - bb-footer.html   # custom footer
+    toc: false
+    anchor-sections: false
+    grid:
+      body-width: 1200px
+

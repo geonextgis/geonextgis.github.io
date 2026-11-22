@@ -1,0 +1,45 @@
+---
+pagetitle: "Publications - Krishnagopal Halder"
+page-layout: full
+title-block-banner: false
+format: 
+  html: 
+    anchor-sections: true
+listing:
+  - id: Journal-articles
+    template: ejs/publication_yearly.ejs
+    contents:
+    - publications/publications.yaml
+    field-display-names:
+      summary: "Summary"
+    field-types:
+      summary: raw
+  # To add a theses section: create publications/theses.yaml (name, title,
+  # journal, year, doi, url, pdf) and uncomment this listing and the matching
+  # "## Theses" block below. ejs/publication.ejs renders it.
+  # - id: Theses
+  #   template: ejs/publication.ejs
+  #   contents:
+  #   - publications/theses.yaml
+  - id: Other-content
+    contents:
+    - publications/other_outputs.yaml
+    type: grid
+    grid-columns: 3
+    fields: [image, title, description, categories]
+---
+
+## Journal Articles 
+::: {#Journal-articles}
+:::
+
+<!--
+## Theses
+::: {#Theses}
+:::
+-->
+
+## Beyond the papers
+::: {#Other-content}
+:::
+

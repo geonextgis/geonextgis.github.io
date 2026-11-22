@@ -1,0 +1,25 @@
+# experience.yaml — "Research experience" on about.html (newest first).
+# Fields: title, organisation, location, year (big number in the left column),
+# period, highlights (list), url (optional).
+- title: Research Scientist
+  organisation: Leibniz Centre for Agricultural Landscape Research (ZALF)
+  location: Müncheberg, Brandenburg, Germany
+  year: "2025"
+  period: Jan 2025 – Present
+  url: https://www.zalf.de/en/Pages/ZALF.aspx
+  highlights:
+    - "Research Platform <em>Simulation and Data Science</em>, Working Group <em>Multi-Scale Modelling and Forecasting (MSM)</em>, contributing to the Leibniz-Lab Systemic Sustainability (LL SYSTAIN) project."
+    - "Developing machine learning workflows for <strong>multi-scale crop yield forecasting</strong> and scenario analysis integrating climate, soil and biodiversity indicators."
+    - "Applying geospatial data science to process and harmonise large Earth observation and agricultural datasets (Sentinel, MODIS, soil grids)."
+    - "Co-designing sustainability indicators linking agricultural productivity and ecological resilience with interdisciplinary teams."
+- title: Remote Intern
+  organisation: Institute of Crop Science and Resource Conservation (INRES)
+  location: University of Bonn, Germany
+  year: "2023"
+  period: Feb 2023 – Feb 2024
+  url: https://www.inres.uni-bonn.de/
+  highlights:
+    - "Developed and validated ML/DL models (XGBoost, CNNs) for <strong>regional and continental-scale crop yield prediction</strong> from satellite-derived vegetation indices and climate data."
+    - "Extracted phenological and climate features with Google Earth Engine, Python (NumPy, Pandas, Scikit-learn) and TensorFlow for time-series analysis."
+    - "Processed multi-terabyte Earth observation datasets on cloud computing platforms to derive agricultural insights and optimise model input features."
+    - "Authored technical reports and visualised results (Matplotlib, Plotly), contributing to publications on data-driven agricultural sustainability."

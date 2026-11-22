@@ -1,0 +1,15 @@
+```{=html}
+<%
+  // skills.ejs — skill groups on about.html; each item renders as a category chip.
+%>
+<div class="skills-grid">
+<% for (let group of items) { %>
+  <div class="skill-group">
+    <h3><%= group.title %></h3>
+    <div class="skill-chips">
+      <% for (let s of (group.items || [])) { %><span class="listing-category"><%= s %></span><% } %>
+    </div>
+  </div>
+<% } %>
+</div>
+```

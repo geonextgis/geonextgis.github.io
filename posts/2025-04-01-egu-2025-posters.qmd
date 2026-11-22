@@ -1,0 +1,15 @@
+---
+title: Two posters at EGU 2025
+description: "Semi-supervised deep learning for high-resolution landscape maps, and diffusion models for crop yield prediction — presented in Vienna."
+date: "2025-04-01"
+image: ../assets/post_2025_04_egu.svg
+image-alt: Abstract pixelated raster cover
+categories: [conference, EGU, deep learning]
+---
+
+At the [EGU General Assembly 2025](https://www.egu25.eu/) in Vienna I presented two posters:
+
+- **Transforming Low-Resolution CORINE Data into High-Resolution Landscape Maps with Semi-Supervised Deep Learning**
+- **Advancing Crop Yield Predictions: The Potential of Diffusion Models in Machine Learning for Agriculture**
+
+Both are listed on my [presentations page](../presentations.html).

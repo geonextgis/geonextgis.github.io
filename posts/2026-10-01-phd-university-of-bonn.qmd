@@ -1,0 +1,20 @@
+---
+title: Starting my doctorate at the University of Bonn
+description: "I have started a Doctor of Agricultural Sciences (Dr. agr.) at the University of Bonn, with my research based at ZALF."
+date: "2026-10-01"
+image: ../assets/post_2026_10_phd.svg
+image-alt: Abstract cover showing a mortarboard over contour lines
+categories: [PhD, research, agroecosystem modelling]
+---
+
+In October 2026 I started my doctorate — a **Doctor of Agricultural Sciences (Dr. agr.)** at the [University of Bonn](https://www.uni-bonn.de/), supervised by Prof. Dr. Frank Ewert. The research itself is carried out at the [Leibniz Centre for Agricultural Landscape Research (ZALF)](https://www.zalf.de/en/Pages/ZALF.aspx) in Müncheberg, Germany.
+
+## Research focus
+
+Landscape-scale agroecosystem modelling: spatial and temporal landscape dynamics, crop productivity and resilience.
+
+## The question I am working on
+
+> How can spatial and temporal landscape information be represented and integrated into agroecosystem models to improve the understanding and prediction of crop productivity and resilience across scales?
+
+I will share updates, code and results here as the project develops.

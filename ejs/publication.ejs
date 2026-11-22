@@ -1,0 +1,26 @@
+```{=html}
+<%
+  let sorted = items.slice().sort((a, b) => {
+    let na = parseInt(String(a.year || '')); let nb = parseInt(String(b.year || ''));
+    if (!isNaN(na) && !isNaN(nb)) return nb - na; return 0;
+  });
+%>
+<div class="pub-list">
+<% for (let item of sorted) { %>
+  <article class="pub">
+    <div class="yr"><%= item.year || '' %></div>
+    <div class="meta">
+      <div class="pt"><%- item.title %></div>
+      <div class="pj">
+        <% if (item.authors || item.author) { %><%= item.authors || item.author %><% } %><% if ((item.authors || item.author) && (item.institution || item.journal)) { %> · <% } %><% if (item.institution || item.journal) { %><i><%- item.institution || item.journal %></i><% } %>
+      </div>
+    </div>
+    <div class="links">
+      <% if (item.doi) { %><a class="tagpill" href="<%- item.doi %>">DOI</a><% } %>
+      <% if (item.url) { %><a class="tagpill" href="<%- item.url %>">Link</a><% } %>
+      <% if (item.pdf) { %><a class="tagpill" href="<%- item.pdf %>">PDF</a><% } %>
+    </div>
+  </article>
+<% } %>
+</div>
+```

@@ -1,0 +1,14 @@
+/.Rproj.user/
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+/.quarto/
+
+**/*.quarto_ipynb
+.planning/HANDOFF.json
+
+# rendered site — published to the gh-pages branch by the GitHub Action
+/docs/
+/_site/

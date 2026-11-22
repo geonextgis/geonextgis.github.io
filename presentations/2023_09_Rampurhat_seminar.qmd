@@ -1,0 +1,21 @@
+---
+title: International Seminar on Recent Advancement in Geographical Studies – A Multidimensional
+  Outlook
+description: Oral presentation · Department of Geography, Rampurhat College, Birbhum,
+  India.
+author: Krishnagopal Halder
+event: Department of Geography, Rampurhat College · Oral presentation
+location: Birbhum, West Bengal, India
+date: '2023-09-01'
+image: /assets/pres_2023_09_rampurhat.svg
+image-alt: Abstract cover for the Rampurhat seminar presentation
+citation: false
+categories:
+  - Oral presentation
+  - Seminar
+  - Geography
+
+---
+
+Oral presentation at the International Seminar on Recent Advancement in Geographical Studies,
+Department of Geography, Rampurhat College, Birbhum, West Bengal, India.
