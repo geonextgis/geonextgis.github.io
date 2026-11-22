@@ -48,9 +48,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e4752e319f1164850719d14c64fb1428.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-ebcb654d2851a87900ff7b3e3f1ddd75.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-55a2fc5f1d19ca7de606ecff3ff7e25f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-ebcb654d2851a87900ff7b3e3f1ddd75.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c3fb42305f8a944b1a62d0e779469fc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-8039f102f80e2f936552a8b4e41081da.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c3fb42305f8a944b1a62d0e779469fc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -229,6 +229,13 @@ ul.task-list li input[type="checkbox"] {
         navbar.classList.toggle('navbar-solid', solid);
       }
       update();
+      // Mobile menu: keep the bar opaque while the collapse is opening/open.
+      navbar.addEventListener('show.bs.collapse', function () {
+        navbar.classList.add('navbar-open');
+      });
+      navbar.addEventListener('hidden.bs.collapse', function () {
+        navbar.classList.remove('navbar-open');
+      });
       window.addEventListener('scroll', update, { passive: true });
       window.addEventListener('resize', update, { passive: true });
     }
