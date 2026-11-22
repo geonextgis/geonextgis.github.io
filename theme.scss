@@ -190,8 +190,8 @@ body.quarto-light .page-columns { padding-top: 0; }
 .bb-hero {
   position: relative;
   max-width: 1480px; margin: 0 auto;
-  padding: 84px clamp(20px, 3vw, 44px) 80px;
-  min-height: 100vh;
+  padding: 24px clamp(20px, 3vw, 44px) 80px;   /* top: small gap under the fixed navbar */
+  min-height: 0;                                  /* was 100vh — removed the large gap above the portrait */
   display: flex; justify-content: center; align-items: center;
   gap: clamp(36px, 5vw, 96px);
 }
@@ -261,7 +261,7 @@ body.quarto-light .page-columns { padding-top: 0; }
 }
 
 @media (max-width: 1080px) {
-  .bb-hero { flex-direction: column; min-height: auto; gap: 28px; padding-top: 84px; }
+  .bb-hero { flex-direction: column; min-height: auto; gap: 28px; padding-top: 0; }
   .bb-hero-left { flex: 1 1 auto; }
   .bb-hero-right { order: -1; min-height: 360px; }
   .bb-squiggle { display: none; }
@@ -586,6 +586,8 @@ ul.no-bullets > li i { color: var(--bb-ink-soft); }
   margin-left: calc((100% - 100vw) / 2);
   box-sizing: border-box;
 }
+/* Quarto's own `footer` padding rule overrides the padding above, so force it */
+footer.bb-footer { padding-top: 96px !important; padding-bottom: 36px !important; margin-top: 80px; }
 .bb-footer .bb-footer-wrap {
   max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px,5vw,56px);
   display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: start;
