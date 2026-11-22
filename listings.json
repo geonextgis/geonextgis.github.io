@@ -11,6 +11,14 @@
     ]
   },
   {
+    "listing": "/publications.html",
+    "items": []
+  },
+  {
+    "listing": "/about.html",
+    "items": []
+  },
+  {
     "listing": "/posts.html",
     "items": [
       "/posts/2026-10-01-phd-university-of-bonn.html",
@@ -18,14 +26,6 @@
       "/posts/2025-04-01-egu-2025-posters.html",
       "/posts/2025-01-01-joining-zalf.html"
     ]
-  },
-  {
-    "listing": "/about.html",
-    "items": []
-  },
-  {
-    "listing": "/publications.html",
-    "items": []
   },
   {
     "listing": "/index.html",
