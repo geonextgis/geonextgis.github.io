@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Krishnagopal &lt;span class=&#39;brand-2&#39;&gt;Halder.&lt;/span&gt;</title>
+<link>https://geonextgis.github.io/posts.html</link>
+<atom:link href="https://geonextgis.github.io/posts.xml" rel="self" type="application/rss+xml"/>
+<description>Personal website for Krishnagopal Halder</description>
+<generator>quarto-1.11.9</generator>
+<lastBuildDate>Thu, 01 Oct 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Starting my doctorate at the University of Bonn</title>
+  <link>https://geonextgis.github.io/posts/2026-10-01-phd-university-of-bonn.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>In October 2026 I started my doctorate — a <strong>Doctor of Agricultural Sciences (Dr.&nbsp;agr.)</strong> at the <a href="https://www.uni-bonn.de/">University of Bonn</a>, supervised by Prof.&nbsp;Dr.&nbsp;Frank Ewert. The research itself is carried out at the <a href="https://www.zalf.de/en/Pages/ZALF.aspx">Leibniz Centre for Agricultural Landscape Research (ZALF)</a> in Müncheberg, Germany.</p>
+<section id="research-focus" class="level2">
+<h2 data-anchor-id="research-focus">Research focus</h2>
+<p>Landscape-scale agroecosystem modelling: spatial and temporal landscape dynamics, crop productivity and resilience.</p>
+</section>
+<section id="the-question-i-am-working-on" class="level2">
+<h2 data-anchor-id="the-question-i-am-working-on">The question I am working on</h2>
+<blockquote class="blockquote">
+<p>How can spatial and temporal landscape information be represented and integrated into agroecosystem models to improve the understanding and prediction of crop productivity and resilience across scales?</p>
+</blockquote>
+<p>I will share updates, code and results here as the project develops.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>PhD</category>
+  <category>research</category>
+  <category>agroecosystem modelling</category>
+  <guid>https://geonextgis.github.io/posts/2026-10-01-phd-university-of-bonn.html</guid>
+  <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://geonextgis.github.io/assets/post_2026_10_phd.svg" medium="image" type="image/svg+xml"/>
+</item>
+<item>
+  <title>Moderating the Hy4Cast workshop at Tropentag 2025</title>
+  <link>https://geonextgis.github.io/posts/2025-09-01-tropentag-hy4cast-workshop.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>At <a href="https://www.tropentag.de/">Tropentag 2025</a>, hosted by the University of Bonn, I moderated the workshop <strong>“Hy4Cast – Hybrid modelling leveraging Artificial Intelligence for fine-scale crop yield forecasts”</strong>.</p>
+
+
+
+ ]]></description>
+  <category>workshop</category>
+  <category>hybrid modelling</category>
+  <category>crop yield</category>
+  <guid>https://geonextgis.github.io/posts/2025-09-01-tropentag-hy4cast-workshop.html</guid>
+  <pubDate>Mon, 01 Sep 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://geonextgis.github.io/assets/post_2025_09_tropentag.svg" medium="image" type="image/svg+xml"/>
+</item>
+<item>
+  <title>Two posters at EGU 2025</title>
+  <link>https://geonextgis.github.io/posts/2025-04-01-egu-2025-posters.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>At the <a href="https://www.egu25.eu/">EGU General Assembly 2025</a> in Vienna I presented two posters:</p>
+<ul>
+<li><strong>Transforming Low-Resolution CORINE Data into High-Resolution Landscape Maps with Semi-Supervised Deep Learning</strong></li>
+<li><strong>Advancing Crop Yield Predictions: The Potential of Diffusion Models in Machine Learning for Agriculture</strong></li>
+</ul>
+<p>Both are listed on my <a href="../presentations.html">presentations page</a>.</p>
+
+
+
+ ]]></description>
+  <category>conference</category>
+  <category>EGU</category>
+  <category>deep learning</category>
+  <guid>https://geonextgis.github.io/posts/2025-04-01-egu-2025-posters.html</guid>
+  <pubDate>Tue, 01 Apr 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://geonextgis.github.io/assets/post_2025_04_egu.svg" medium="image" type="image/svg+xml"/>
+</item>
+<item>
+  <title>Joining ZALF as a Research Scientist</title>
+  <link>https://geonextgis.github.io/posts/2025-01-01-joining-zalf.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>In January 2025 I joined the <a href="https://www.zalf.de/en/Pages/ZALF.aspx">Leibniz Centre for Agricultural Landscape Research (ZALF)</a> in Müncheberg, Germany, as a Research Scientist. I work in the Research Platform <em>Simulation and Data Science</em>, in the Working Group <em>Multi-Scale Modelling and Forecasting (MSM)</em>, and contribute to the <a href="https://www.ll-systain.org/">Leibniz-Lab Systemic Sustainability (LL SYSTAIN)</a> project.</p>
+<p>My work there covers:</p>
+<ul>
+<li>machine learning workflows for <strong>multi-scale crop yield forecasting</strong> and scenario analysis, integrating climate, soil and biodiversity indicators;</li>
+<li>processing and harmonising large Earth observation and agricultural datasets (Sentinel, MODIS, soil grids);</li>
+<li>co-designing sustainability indicators that link agricultural productivity and ecological resilience, together with interdisciplinary teams.</li>
+</ul>
+
+
+
+ ]]></description>
+  <category>news</category>
+  <category>ZALF</category>
+  <category>LL SYSTAIN</category>
+  <guid>https://geonextgis.github.io/posts/2025-01-01-joining-zalf.html</guid>
+  <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://geonextgis.github.io/assets/post_2025_01_zalf.svg" medium="image" type="image/svg+xml"/>
+</item>
+</channel>
+</rss>
